@@ -21,29 +21,25 @@ The `RootCoordinator` lives at the application root:
 
 ---
 
-## EditorCore: Core Tools Subsystem (Phase 2)
-1. **Transform Subsystem (`TransformEngine`):**
-   - 8 interactive handles and rotation stalk.
-   - Magnetic snapping to canvas center axes ($X, Y$), canvas edges, and 0/90/180/270° angle targets.
-   - Decomposition of affine transform into translation, scale, rotation, and flips.
+## EditorCore: Adjustments & Filters Pipeline (Phase 3)
+1. **Monotone Cubic Spline (`MonotoneCubicSpline`):**
+   - Implements the Fritsch-Carlson algorithm on control points $(x_k, y_k) \in [0, 1]^2$.
+   - Pre-computes 256-entry 8-bit lookup tables (LUTs) for $O(1)$ pixel transformation per channel.
+   - Strictly monotonic: eliminates ringing, negative overshoots, and unnatural tone jumps.
 
-2. **Crop Subsystem (`CropEngine`):**
-   - Aspect ratio constraints (Free, 1:1, 4:5, 3:4, 16:9, 9:16, 2:3).
-   - Dynamic rule-of-thirds grid computation.
-   - Real-time layer clipping and pixel alignment adjustment via `CropDocumentCommand`.
+2. **Non-Destructive Adjustments (`AdjustmentEngine`):**
+   - Evaluates: Brightness/Contrast, Exposure EV ($2^{\Delta EV}$), Levels with variable midtone gamma ($1/\gamma$), HSL color shift, Vibrance (adaptive muted saturation boost), Color Balance, Temperature & Tint, Black & White mixer, and Vignette.
 
-3. **Brush & Smudge Engine (`BrushEngine`):**
-   - Catmull-Rom cubic spline interpolation for high-frequency touch sampling.
-   - Stamp spacing calculation ($d \le \text{spacing} \times \text{size}$).
-   - Radial hardness falloff with cosine profile for soft airbrushes through hard inks.
-   - Direct targeting of layer RGBA buffers or single-channel 8-bit layer masks.
+3. **GPU & Spatial Filters (`FilterEngine`):**
+   - Separable Gaussian Blur ($O(N \cdot K)$ complexity instead of $O(N \cdot K^2)$).
+   - Pixelate mosaic block rasterizer.
+   - Chromatic Aberration with independent red/blue horizontal phase shifting.
+   - Unsharp Mask: high-pass edge amplification ($I + \alpha(I - G(I))$).
+   - Liquify push warp with smooth radial decay.
 
-4. **Selection Subsystem (`SelectionEngine` & `MarchingAntsGenerator`):**
-   - 8-bit mask rasterization for Rect, Ellipse, Lasso, Polygonal Lasso, and Magic Wand.
-   - Vision subject isolation via `VNGenerateForegroundInstanceMaskRequest`.
-   - Boolean combining: Replace, Add, Subtract, Intersect.
-   - Morphological operations: Separation box-blur feathering, dilation (expand), erosion (contract).
-   - Animated marching ants border extraction using sub-pixel phase dashes.
+4. **Live Histogram & Auto-Enhance (`HistogramEngine` & `AutoEnhanceEngine`):**
+   - Simultaneous 256-bin accumulation of Red, Green, Blue, and Rec. 601 Luminance channels.
+   - Auto-Enhance evaluates 0.5% and 99.5% cumulative percentiles to establish optimal black/white points and expand dynamic range.
 
 ---
 

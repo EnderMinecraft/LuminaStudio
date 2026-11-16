@@ -26,6 +26,10 @@ def main():
         ("TransformOverlayView.swift", "LuminaStudio/Views/Photo/TransformOverlayView.swift"),
         ("CropOverlayView.swift", "LuminaStudio/Views/Photo/CropOverlayView.swift"),
         ("BrushSettingsSheetView.swift", "LuminaStudio/Views/Photo/BrushSettingsSheetView.swift"),
+        ("CurvesSplineEditorView.swift", "LuminaStudio/Views/Photo/CurvesSplineEditorView.swift"),
+        ("HistogramView.swift", "LuminaStudio/Views/Photo/HistogramView.swift"),
+        ("AdjustmentsSheetView.swift", "LuminaStudio/Views/Photo/AdjustmentsSheetView.swift"),
+        ("FiltersSheetView.swift", "LuminaStudio/Views/Photo/FiltersSheetView.swift"),
         ("VectorWorkspacePlaceholderView.swift", "LuminaStudio/Views/Vector/VectorWorkspacePlaceholderView.swift"),
         ("CollageWorkspacePlaceholderView.swift", "LuminaStudio/Views/Collage/CollageWorkspacePlaceholderView.swift"),
     ]

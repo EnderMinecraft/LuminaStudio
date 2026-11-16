@@ -38,6 +38,20 @@ public struct PhotoWorkspaceView: View {
                     CropOverlayView(viewModel: viewModel)
                 }
                 
+                // Live Histogram Floating HUD
+                if viewModel.isHistogramPresented {
+                    VStack {
+                        HStack {
+                            Spacer()
+                            HistogramView(data: viewModel.histogramData)
+                                .padding(.top, 60)
+                                .padding(.trailing, 16)
+                        }
+                        Spacer()
+                    }
+                    .transition(.opacity.combined(with: .scale(scale: 0.9)))
+                }
+                
                 // Top Bar & Tool Options
                 VStack(spacing: 8) {
                     topToolbar
@@ -75,6 +89,7 @@ public struct PhotoWorkspaceView: View {
             }
             .animation(.easeInOut(duration: 0.25), value: viewModel.isLayerPanelPresented)
             .animation(.easeInOut(duration: 0.25), value: viewModel.isHistoryPanelPresented)
+            .animation(.easeInOut(duration: 0.2), value: viewModel.isHistogramPresented)
             .animation(.easeInOut(duration: 0.2), value: viewModel.activeTool)
             .sheet(isPresented: $viewModel.isNewCanvasSheetPresented) {
                 NewCanvasSheetView(viewModel: viewModel)
@@ -84,6 +99,12 @@ public struct PhotoWorkspaceView: View {
             }
             .sheet(isPresented: $viewModel.isBrushSettingsPresented) {
                 BrushSettingsSheetView(viewModel: viewModel)
+            }
+            .sheet(isPresented: $viewModel.isAdjustmentsSheetPresented) {
+                AdjustmentsSheetView(viewModel: viewModel)
+            }
+            .sheet(isPresented: $viewModel.isFiltersSheetPresented) {
+                FiltersSheetView(viewModel: viewModel)
             }
             .photosPicker(isPresented: $viewModel.isPhotoPickerPresented, selection: $selectedPhotoItem, matching: .images)
             .onChange(of: selectedPhotoItem) { _, newItem in
@@ -118,6 +139,20 @@ public struct PhotoWorkspaceView: View {
                 } label: {
                     Label("Import Photo", systemImage: "photo.badge.plus")
                 }
+                
+                Divider()
+                
+                Button {
+                    viewModel.isAdjustmentsSheetPresented = true
+                } label: {
+                    Label("Adjustments...", systemImage: "slider.horizontal.3")
+                }
+                
+                Button {
+                    viewModel.isFiltersSheetPresented = true
+                } label: {
+                    Label("Filters...", systemImage: "camera.filters")
+                }
             } label: {
                 Image(systemName: "folder")
                     .font(.body.weight(.medium))
@@ -148,6 +183,40 @@ public struct PhotoWorkspaceView: View {
             .clipShape(Capsule())
             
             Spacer()
+            
+            // Before / After Press-and-Hold Button
+            Button {
+                // Tapping toggles, press-and-hold handled via gesture
+            } label: {
+                Image(systemName: viewModel.isBeforeAfterBypassed ? "eye.slash.fill" : "eye.fill")
+                    .font(.caption.weight(.medium))
+                    .foregroundStyle(viewModel.isBeforeAfterBypassed ? Color.orange : Color.primary)
+                    .padding(8)
+                    .background(.ultraThinMaterial)
+                    .clipShape(Circle())
+            }
+            ._onButtonGesture(pressing: { pressing in
+                viewModel.isBeforeAfterBypassed = pressing
+                if pressing {
+                    viewModel.statusMessage = "Before (Press & Hold)"
+                } else {
+                    viewModel.statusMessage = "After (Adjusted)"
+                }
+            }, perform: {})
+            
+            // Live Histogram Toggle Button
+            Button {
+                viewModel.isHistogramPresented.toggle()
+                if viewModel.isHistogramPresented {
+                    viewModel.refreshHistogram()
+                }
+            } label: {
+                Image(systemName: "chart.bar.xaxis")
+                    .foregroundStyle(viewModel.isHistogramPresented ? Color.accentColor : Color.primary)
+                    .padding(8)
+                    .background(.ultraThinMaterial)
+                    .clipShape(Circle())
+            }
             
             // Zoom Controls
             HStack(spacing: 8) {
@@ -188,6 +257,16 @@ public struct PhotoWorkspaceView: View {
             .clipShape(Capsule())
             
             Spacer()
+            
+            // Adjustments Direct Button
+            Button {
+                viewModel.isAdjustmentsSheetPresented = true
+            } label: {
+                Image(systemName: "slider.horizontal.3")
+                    .padding(8)
+                    .background(.ultraThinMaterial)
+                    .clipShape(Circle())
+            }
             
             // History Panel Toggle
             Button {

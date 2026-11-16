@@ -14,6 +14,7 @@ public enum ActiveTool: String, CaseIterable, Identifiable, Sendable {
     case brush = "Brush"
     case eraser = "Eraser"
     case smudge = "Smudge"
+    case cloneStamp = "Clone Stamp"
     case eyedropper = "Eyedropper"
     case floodFill = "Fill Bucket"
     case gradient = "Gradient"
@@ -28,6 +29,7 @@ public enum ActiveTool: String, CaseIterable, Identifiable, Sendable {
         case .brush: return "paintbrush.pointed.fill"
         case .eraser: return "eraser.fill"
         case .smudge: return "hand.draw.fill"
+        case .cloneStamp: return "stamp.fill"
         case .eyedropper: return "eyedropper"
         case .floodFill: return "drop.fill"
         case .gradient: return "circle.lefthalf.striped.horizontal"
@@ -48,6 +50,9 @@ public final class PhotoEditorViewModel: @unchecked Sendable {
     public var activeBrushPreset: BrushPreset = .roundSoft
     public var brushColor: ColorRGBA = ColorRGBA(r: 59, g: 130, b: 246, a: 255)
     
+    // Clone Stamp state
+    public var cloneSourcePoint: CGPoint?
+    
     // Selection state
     public var activeSelectionMask: SelectionMask
     public var selectionMode: SelectionMode = .replace
@@ -67,6 +72,13 @@ public final class PhotoEditorViewModel: @unchecked Sendable {
     public var isCropActive: Bool = false
     public var transformState: TransformState = .identity
     public var activeSnappingGuides: [SnappingGuide] = []
+    
+    // Phase 3: Adjustments, Filters, Histogram & Comparison
+    public var isAdjustmentsSheetPresented: Bool = false
+    public var isFiltersSheetPresented: Bool = false
+    public var isHistogramPresented: Bool = false
+    public var isBeforeAfterBypassed: Bool = false
+    public var histogramData: HistogramData = HistogramData()
     
     // UI state
     public var isLayerPanelPresented: Bool = false
@@ -94,10 +106,17 @@ public final class PhotoEditorViewModel: @unchecked Sendable {
         self.cropConfig = CropConfiguration(
             cropRect: CGRect(x: 0, y: 0, width: document.configuration.width, height: document.configuration.height)
         )
+        self.refreshHistogram()
     }
     
     public var activeLayer: Layer? {
         document.activeLayer
+    }
+    
+    public func refreshHistogram() {
+        let buffer = compositor.compositeToBuffer(document: document)
+        let count = document.configuration.width * document.configuration.height
+        histogramData = HistogramEngine.shared.computeHistogram(from: [UInt8](buffer), count: count)
     }
     
     // MARK: - Layer Actions
@@ -292,6 +311,7 @@ public final class PhotoEditorViewModel: @unchecked Sendable {
         let newData = Data(buffer)
         let cmd = PaintStrokeCommand(layer: active, previousData: oldData, newData: newData)
         executeCommand(cmd)
+        refreshHistogram()
     }
     
     public func executeGradient(from start: CGPoint, to end: CGPoint) {
@@ -331,6 +351,7 @@ public final class PhotoEditorViewModel: @unchecked Sendable {
         let newData = Data(buffer)
         let cmd = PaintStrokeCommand(layer: active, previousData: oldData, newData: newData)
         executeCommand(cmd)
+        refreshHistogram()
     }
     
     // MARK: - Crop & Transform Execution
@@ -342,6 +363,7 @@ public final class PhotoEditorViewModel: @unchecked Sendable {
         activeSelectionMask = SelectionMask(width: document.configuration.width, height: document.configuration.height)
         cropConfig.cropRect = CGRect(x: 0, y: 0, width: document.configuration.width, height: document.configuration.height)
         zoomToFit(containerSize: viewport.viewportSize)
+        refreshHistogram()
     }
     
     public func cancelCrop() {
@@ -386,6 +408,7 @@ public final class PhotoEditorViewModel: @unchecked Sendable {
             do {
                 try await commandManager.undo()
                 statusMessage = "Undo"
+                refreshHistogram()
             } catch {
                 statusMessage = "Cannot undo: \(error.localizedDescription)"
             }
@@ -397,6 +420,7 @@ public final class PhotoEditorViewModel: @unchecked Sendable {
             do {
                 try await commandManager.redo()
                 statusMessage = "Redo"
+                refreshHistogram()
             } catch {
                 statusMessage = "Cannot redo: \(error.localizedDescription)"
             }
@@ -408,6 +432,7 @@ public final class PhotoEditorViewModel: @unchecked Sendable {
             do {
                 try await commandManager.execute(cmd)
                 statusMessage = cmd.name
+                refreshHistogram()
             } catch {
                 statusMessage = "Command failed: \(error.localizedDescription)"
             }
@@ -429,6 +454,7 @@ public final class PhotoEditorViewModel: @unchecked Sendable {
         self.cropConfig = CropConfiguration(cropRect: CGRect(x: 0, y: 0, width: width, height: height))
         self.commandManager.clear()
         self.statusMessage = "Created new canvas (\(width)x\(height))"
+        refreshHistogram()
     }
     
     #if canImport(UIKit)
@@ -481,6 +507,7 @@ public final class PhotoEditorViewModel: @unchecked Sendable {
         self.cropConfig = CropConfiguration(cropRect: CGRect(x: 0, y: 0, width: w, height: h))
         self.commandManager.clear()
         self.statusMessage = "Imported image (\(w)x\(h))"
+        refreshHistogram()
     }
     #endif
     
