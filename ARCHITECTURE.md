@@ -79,10 +79,34 @@ The `RootCoordinator` lives at the application root:
 
 ---
 
-## VectorCore: Hybrid Scene Graph & Calculus
-- **Scene Graph:** Tree of `ArtboardNode` containing `VectorNode` instances (`PathNode`, `ParametricShapeNode`, `VectorTextNode`, `VectorGroupNode`).
-- **Bezier Calculus:** `BezierCurveSegment` evaluates cubic Bezier splines using Bernstein polynomials and de Casteljau subdivision.
-- **Rendering Choice:** Option C (Hybrid Tile-Cached Core Graphics + Metal Compositor) guarantees 60 fps with 5,000+ nodes while ensuring 100% native typography, stroke mitering, and lossless PDF/SVG export.
+## VectorCore: Hybrid Scene Graph & Calculus (Phase 6)
+1. **Scene Graph & Geometry Model:**
+   - Multi-artboard hierarchy: `VectorDocument` $\to$ `ArtboardNode` $\to$ `VectorNode` (`PathNode`, `ParametricShapeNode`, `VectorTextNode`, `VectorGroupNode`).
+   - `BezierSubpath` stores lists of `AnchorPoint`s containing independent `inHandle` and `outHandle` controls, handle modes (`corner`, `smooth`, `symmetric`), and closure flags.
+   - Bounding boxes evaluated analytically across cubic Bernstein polynomials.
+
+2. **Curve Fitting Pipeline (`CurveFitting`):**
+   - **Ramer-Douglas-Peucker (RDP):** $O(N \log N)$ recursive polyline simplification eliminating collinear and jittery touch/Pencil input within tolerance $\epsilon$.
+   - **Schneider's Algorithm:** Fits piecewise cubic Bezier curves through digitizer points:
+     - Estimates parameter values $u_i$ using chord-length parametrization.
+     - Resolves optimal control points $P_1, P_2$ via least-squares matching endpoints and unit tangents.
+     - Performs Newton-Raphson root-finding to iteratively re-parameterize $u_i$.
+     - Recursively subdivides at the point of maximum error until $\max \|B(u_i) - P_i\| < \text{error}$.
+
+3. **Planar Boolean Engine (`VectorBooleanEngine`):**
+   - Implements 2D polygon clipping for Union, Subtract, Intersect, and Exclude.
+   - Evaluates edge-edge intersections, interior point classification via ray casting, and convex hull envelope extraction for multi-component unions.
+   - Smooths and re-fits resulting clipped polygons back into resolution-independent `BezierSubpath` structures.
+
+4. **Image Tracing Engine (`ImageTracer`):**
+   - **Vision Contour Detection:** Runs `VNDetectContoursRequest` with contrast normalization, extracting closed polygon topological contours.
+   - **Moore-Neighbor Boundary Following:** High-performance CPU fallback for 8-connected binary thresholded image rasters.
+   - Converts discrete contour rings into smooth cubic Bezier paths via RDP and Schneider fitting.
+
+5. **Interchange, Rendering & Cross-Workspace Bridge:**
+   - **SVG:** Lossless export and import of SVG paths (`M`, `L`, `C`, `Z`), shapes, fills, and strokes.
+   - **PDF:** Native vector PDF generation using `UIGraphicsPDFRenderer`.
+   - **Cross-Workspace Handoff:** "Send to Photo Workspace" renders vector artboards into high-resolution premultiplied RGBA buffers placed into active `LuminaDocument` as editable `VectorLayer`s with zero state loss.
 
 ---
 

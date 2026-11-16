@@ -84,6 +84,54 @@
         "en" : { "stringUnit" : { "state" : "translated", "value" : "Clean Specks" } },
         "vi" : { "stringUnit" : { "state" : "translated", "value" : "Xoá hạt nhiễu" } }
       }
+    },
+    "Vector Inspector" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Vector Inspector" } },
+        "vi" : { "stringUnit" : { "state" : "translated", "value" : "Thanh tra Véc-tơ" } }
+      }
+    },
+    "Trace Image" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Trace Image" } },
+        "vi" : { "stringUnit" : { "state" : "translated", "value" : "Đồ véc-tơ ảnh" } }
+      }
+    },
+    "Appearance" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Appearance" } },
+        "vi" : { "stringUnit" : { "state" : "translated", "value" : "Giao diện" } }
+      }
+    },
+    "Fill Color" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Fill Color" } },
+        "vi" : { "stringUnit" : { "state" : "translated", "value" : "Màu tô" } }
+      }
+    },
+    "Stroke Color" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Stroke Color" } },
+        "vi" : { "stringUnit" : { "state" : "translated", "value" : "Màu viền" } }
+      }
+    },
+    "Path Boolean" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Path Boolean" } },
+        "vi" : { "stringUnit" : { "state" : "translated", "value" : "Phép toán đường dẫn" } }
+      }
+    },
+    "Send to Photo Workspace" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Send to Photo Workspace" } },
+        "vi" : { "stringUnit" : { "state" : "translated", "value" : "Gửi sang phòng Ảnh" } }
+      }
+    },
+    "Export (SVG / PDF / PNG)" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Export (SVG / PDF / PNG)" } },
+        "vi" : { "stringUnit" : { "state" : "translated", "value" : "Xuất file (SVG / PDF / PNG)" } }
+      }
     }
   },
   "version" : "1.0"

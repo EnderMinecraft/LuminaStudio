@@ -1,17 +1,39 @@
 import SwiftUI
 import EditorCore
+import VectorCore
 
 public struct WorkspaceContainerView: View {
     @Bindable public var coordinator: RootCoordinator
     @State private var photoViewModel: PhotoEditorViewModel
+    @State private var vectorViewModel: VectorEditorViewModel
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
     
     public init(coordinator: RootCoordinator) {
         self.coordinator = coordinator
-        _photoViewModel = State(initialValue: PhotoEditorViewModel(
+        let pVM = PhotoEditorViewModel(
             document: coordinator.photoDocument,
             commandManager: coordinator.photoCommandManager
-        ))
+        )
+        let vVM = VectorEditorViewModel(
+            document: coordinator.vectorDocument,
+            commandManager: coordinator.vectorCommandManager
+        )
+        
+        vVM.onSendToPhoto = { pixelBuffer, size in
+            let newLayer = Layer(
+                name: "Vector Artwork",
+                kind: .vector(documentID: coordinator.vectorDocument.id),
+                rawPixelData: Data(pixelBuffer),
+                pixelWidth: Int(size.width),
+                pixelHeight: Int(size.height)
+            )
+            pVM.document.layers.append(newLayer)
+            pVM.document.selectedLayerID = newLayer.id
+            coordinator.switchWorkspace(to: .photo)
+        }
+        
+        _photoViewModel = State(initialValue: pVM)
+        _vectorViewModel = State(initialValue: vVM)
     }
     
     public var body: some View {
@@ -22,7 +44,7 @@ public struct WorkspaceContainerView: View {
                 case .photo:
                     PhotoWorkspaceView(viewModel: photoViewModel)
                 case .vector:
-                    VectorWorkspacePlaceholderView(document: coordinator.vectorDocument)
+                    VectorWorkspaceView(viewModel: vectorViewModel)
                 case .collage:
                     CollageWorkspacePlaceholderView(document: coordinator.collageDocument)
                 }

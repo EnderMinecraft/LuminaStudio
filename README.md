@@ -45,11 +45,23 @@ Lumina Studio is a professional-grade, multi-workspace image editing suite for i
    - Document persistence via `.lumina` zipped file packages.
    - Export to PNG, JPEG (quality slider), and HEIC.
 
-2. **Vector Workspace:**
-   - Artboard scene graph (`VectorDocument`, `ArtboardNode`, `VectorNode`).
-   - Cubic Bezier curve math, de Casteljau splitting, and bounding box evaluations.
-   - Hybrid Tile-Cached Core Graphics + Metal Canvas Compositor architecture.
-   - Native `.luminavec` persistence and lossless SVG/PDF export.
+2. **Vector Workspace (Phase 6):**
+   - **Scene Graph:** Resolution-independent multi-artboard graph (`VectorDocument`, `ArtboardNode`, `VectorNode` - `PathNode`, `ParametricShapeNode`, `VectorTextNode`, `VectorGroupNode`).
+   - **Vector Tools Suite:**
+     - **Select & Transform:** Object selection, multi-select, translation, 4-corner bounding box scaling, deletion.
+     - **Direct Select:** Sub-select individual anchor points and Bezier handles with live tangent editing.
+     - **Pen Tool:** Tap to create corner points, drag to set smooth tangent handles, live drafting preview, close path or finish open path.
+     - **Pencil Tool:** Apple Pencil / touch freehand drawing with Ramer-Douglas-Peucker (RDP) polyline simplification and Schneider cubic Bezier curve fitting.
+     - **Shape Tools:** Live dragging for Rectangles, Rounded Rectangles, Ellipses, Polygons (3–12 sides), Stars (point count & inner radius), and Lines.
+   - **Boolean Operations Engine:** Planar polygon clipping for Union, Subtract, Intersect, and Exclude with automatic curve re-fitting.
+   - **Alignment & Distribution:** 6-axis magnetic alignment (Left, Center X, Right, Top, Center Y, Bottom) and equal distribution.
+   - **Image Tracer:** High-contrast bitmap tracing using Vision `VNDetectContoursRequest` and Moore-Neighbor boundary following with tunable contrast and corner tolerance.
+   - **Interchange & Persistence:**
+     - Native `.luminavec` zipped package persistence (`manifest.json`, `document.json`, `preview.svg`).
+     - Lossless SVG 1.1/2.0 import and export (`<path>`, `<rect>`, `<ellipse>`, `<text>`, `<g>`).
+     - Vector PDF export via `UIGraphicsPDFRenderer`.
+     - Raster PNG export at 1x, 2x, and 3x scale.
+   - **Cross-Workspace Interoperability:** "Send to Photo Workspace" renders vector artwork into an editable `VectorLayer` inside the active `LuminaDocument` without loss of state.
 
 3. **Collage Mini Mode:**
    - Binary Space Partitioning (BSP) layout tree engine.

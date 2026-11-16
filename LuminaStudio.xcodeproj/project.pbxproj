@@ -7,69 +7,83 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		AC38756E608E4FECA60E2CBB /* LuminaStudioApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE0E9A5D03F4C20986E2DC0 /* LuminaStudioApp.swift */; };
-		4D77C03012BC4256BCCFBE82 /* RootCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8978F30B1C654ABBBF4C29A8 /* RootCoordinator.swift */; };
-		60509EFDF3A7406AB86E0901 /* PhotoEditorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01CD27BCB9F4B8482B573DF /* PhotoEditorViewModel.swift */; };
-		AC0279E0725E482682BD6AE7 /* WorkspaceContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D2E3D0E3A24901B15AC7F5 /* WorkspaceContainerView.swift */; };
-		1BA2EDFA0BC44283ADCAB251 /* PhotoWorkspaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B37AEDEA3364F4E8E074CE7 /* PhotoWorkspaceView.swift */; };
-		28E9EFE6B5104A9D9C8F006C /* MetalCanvasRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 536AEE18C2BD481E81B1DCEC /* MetalCanvasRepresentable.swift */; };
-		C6401CC7FDAF468D91FB54CD /* LayerPanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B41D59F6DC954D8191A70729 /* LayerPanelView.swift */; };
-		217B2C140F194ED5BC3BE39B /* HistoryPanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117B9CA0F38C4615A37750F5 /* HistoryPanelView.swift */; };
-		BDA9C714A1984DECB9D1519A /* NewCanvasSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D4D33D999442689DBBB3FE /* NewCanvasSheetView.swift */; };
-		9ED2066ABA11497AA8A5E83F /* ExportSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97845792642243CEB29C3949 /* ExportSheetView.swift */; };
-		2A7187F9BF0C4FEEBD8E5D52 /* ToolSidebarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B40A441034430B995DF3B0 /* ToolSidebarView.swift */; };
-		7D896A0E99504051AC2B3344 /* ToolOptionsBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829F1009268C416097129D5E /* ToolOptionsBarView.swift */; };
-		435A724485FD4B6AB26C2F25 /* SelectionOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0829C1C3B9E4499F964A931F /* SelectionOverlayView.swift */; };
-		03162AC68B5144B183CA8C22 /* TransformOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69BC2A1143C94A53B23AB5D9 /* TransformOverlayView.swift */; };
-		38CC6A2FC3E64B58A59C73DD /* CropOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F925C519B94E99B3B4FBE2 /* CropOverlayView.swift */; };
-		77F9F10477C842FF85FBA8BD /* BrushSettingsSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D94199574443A8933E7272 /* BrushSettingsSheetView.swift */; };
-		56BBA52F21F94B8BB1845FE7 /* CurvesSplineEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8EA7079FFB4319A0FE1C8A /* CurvesSplineEditorView.swift */; };
-		EF7202DF31F14C5E90E21F41 /* HistogramView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 765D65B8D3E641DEB88A521A /* HistogramView.swift */; };
-		9124A9C33FE4422AB7E5453C /* AdjustmentsSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5CE567A9A044FF8BF8CA0B3 /* AdjustmentsSheetView.swift */; };
-		AA7A1F8DB100442E9647F358 /* FiltersSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E5AA286A3341E386F85A16 /* FiltersSheetView.swift */; };
-		55877D7553C2496A9F2D59CB /* MagnifierLoupeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA399A1C6FF467E984C08AF /* MagnifierLoupeView.swift */; };
-		B72A2B19F6524EE69C0B3AA9 /* CutoutRefineStudioView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 615725FCA1A74BE98BA83630 /* CutoutRefineStudioView.swift */; };
-		67768631F664495D95507A8E /* RulerGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529CBFEA56204E54A4D10803 /* RulerGridView.swift */; };
-		8D7434CE80674E4096B5E325 /* TextAndShapeSheetsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070E8E252CE5408DB714CB2F /* TextAndShapeSheetsView.swift */; };
-		2F3E2AEFDF184C38A5F7F8C1 /* VectorWorkspacePlaceholderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01645082378648BB97B3D05B /* VectorWorkspacePlaceholderView.swift */; };
-		F5B0946CEDFC430F86524B0E /* CollageWorkspacePlaceholderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2373F818228647AAAB97C995 /* CollageWorkspacePlaceholderView.swift */; };
-		E3EDF5420EDC4E138B25DCC5 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = AFFC7C7537084377B5236621 /* Localizable.xcstrings */; };
+		F9933D7AEB004E4AA59D4C5E /* LuminaStudioApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A17096B4CB94B6F9ECD3EC5 /* LuminaStudioApp.swift */; };
+		A0B96DC941DC4A67B13F9B90 /* RootCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DB5E1486B346FD904499D7 /* RootCoordinator.swift */; };
+		94431DC13D2042F18D7F07BD /* PhotoEditorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19952066A4A48D7A113C26C /* PhotoEditorViewModel.swift */; };
+		CF4D2574EEAF43BE9CA8FEEA /* WorkspaceContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E514821E0F2B4844A954A5D7 /* WorkspaceContainerView.swift */; };
+		156FF32DD8D94D5AB0BF829D /* PhotoWorkspaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC442D64C7F6488592C2234C /* PhotoWorkspaceView.swift */; };
+		06BB24E0FAC04EFB880BCC4F /* MetalCanvasRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008215A316134B8EB91E2CF4 /* MetalCanvasRepresentable.swift */; };
+		0C408053D164470EA194712E /* LayerPanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16F7FAA850243F792EBADA9 /* LayerPanelView.swift */; };
+		84D158A3F5754AEC859D411A /* HistoryPanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE799B3FDC5F417599ADDBA1 /* HistoryPanelView.swift */; };
+		BFE545FBC08A4CD09A2D3653 /* NewCanvasSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0B94875A08479CAAC68E7F /* NewCanvasSheetView.swift */; };
+		0344A6B7DFE24B8AA7A52EF3 /* ExportSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B9474656CE47A3A4CAE204 /* ExportSheetView.swift */; };
+		BB6299BF68CC4CE0A1976496 /* ToolSidebarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF07D5406AC444E5A376AFB3 /* ToolSidebarView.swift */; };
+		F1D3E192D48E4717B0304E7C /* ToolOptionsBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218F34DE1AEE4D2D9AB2E8CE /* ToolOptionsBarView.swift */; };
+		D5B3E5C963D0495E93156477 /* SelectionOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10A827BE33EF414DA1B3C1D8 /* SelectionOverlayView.swift */; };
+		CFAD088BF6C847398AC47A2C /* TransformOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE765602DE7B437CAF7BCF2E /* TransformOverlayView.swift */; };
+		C47A85F40D0D4F39B6C61615 /* CropOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED85D82759742CA802CC9DF /* CropOverlayView.swift */; };
+		A841811A7628414EBF2A1D3F /* BrushSettingsSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861295EC87924806A3D0836C /* BrushSettingsSheetView.swift */; };
+		83DBD9D660A54BD89413F261 /* CurvesSplineEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D01B68AEC7C42C7BF31FD32 /* CurvesSplineEditorView.swift */; };
+		B8250276F21849F3951F0061 /* HistogramView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 597EFC5CAA0A416A8FC8C157 /* HistogramView.swift */; };
+		E3DD4C8E84AA412D8692557F /* AdjustmentsSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D245A3039D4BFDACEAB820 /* AdjustmentsSheetView.swift */; };
+		B5487A871C3745F6BF543B9C /* FiltersSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5E260201AEF4B10A5FD2EF7 /* FiltersSheetView.swift */; };
+		EF07234466E5469D98968930 /* MagnifierLoupeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8169375E954DECB2E63EE4 /* MagnifierLoupeView.swift */; };
+		AE42DCF0159148D6994AF116 /* CutoutRefineStudioView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA907875C044BE6A629CD3D /* CutoutRefineStudioView.swift */; };
+		551B7F7635E24B2D812B74D8 /* RulerGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC35E8A03E6449AB0308124 /* RulerGridView.swift */; };
+		27CDAAF890FD45E6B22AD012 /* TextAndShapeSheetsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C6902751BA430DABAB8E9B /* TextAndShapeSheetsView.swift */; };
+		288185731E104AF08AB0464E /* VectorEditorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A69844025044F60864E5978 /* VectorEditorViewModel.swift */; };
+		279D1FACCF8B4FEC851ED790 /* VectorWorkspaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2093E36760394FF5B098C61C /* VectorWorkspaceView.swift */; };
+		611D160CD44946EBB4706512 /* VectorCanvasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12B7DF0AA0EE45649412D28D /* VectorCanvasView.swift */; };
+		CA8B19616FE9484C8D001A5F /* VectorToolbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54595D8C32A24979A7D8ABCD /* VectorToolbarView.swift */; };
+		710081D3CD2C43FB8509A6E2 /* VectorPropertiesPanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E07C2CFC244D8E9381B370 /* VectorPropertiesPanelView.swift */; };
+		7C9DCAE3B2324248AF75F34D /* VectorTraceSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B39DABA2224877A80F6DEF /* VectorTraceSheetView.swift */; };
+		7633AD41B3D442C88CDC63B2 /* VectorExportSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E02E9B51F8477D80F69AFA /* VectorExportSheetView.swift */; };
+		DB0E7B7C16F440B79DF2ABFD /* VectorWorkspacePlaceholderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702C56DB4A93458EB75B7035 /* VectorWorkspacePlaceholderView.swift */; };
+		25E3D644DFAC405F88B50EEA /* CollageWorkspacePlaceholderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F058D49D7A541718BC06AD6 /* CollageWorkspacePlaceholderView.swift */; };
+		900172203EA6457B95D840FB /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = DE5001606FD645528DEB8263 /* Localizable.xcstrings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		BDE0E9A5D03F4C20986E2DC0 /* LuminaStudioApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LuminaStudio/App/LuminaStudioApp.swift"; sourceTree = "<group>"; };
-		8978F30B1C654ABBBF4C29A8 /* RootCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LuminaStudio/App/RootCoordinator.swift"; sourceTree = "<group>"; };
-		D01CD27BCB9F4B8482B573DF /* PhotoEditorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LuminaStudio/ViewModels/PhotoEditorViewModel.swift"; sourceTree = "<group>"; };
-		89D2E3D0E3A24901B15AC7F5 /* WorkspaceContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LuminaStudio/Views/WorkspaceContainerView.swift"; sourceTree = "<group>"; };
-		7B37AEDEA3364F4E8E074CE7 /* PhotoWorkspaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LuminaStudio/Views/Photo/PhotoWorkspaceView.swift"; sourceTree = "<group>"; };
-		536AEE18C2BD481E81B1DCEC /* MetalCanvasRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LuminaStudio/Views/Photo/MetalCanvasRepresentable.swift"; sourceTree = "<group>"; };
-		B41D59F6DC954D8191A70729 /* LayerPanelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LuminaStudio/Views/Photo/LayerPanelView.swift"; sourceTree = "<group>"; };
-		117B9CA0F38C4615A37750F5 /* HistoryPanelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LuminaStudio/Views/Photo/HistoryPanelView.swift"; sourceTree = "<group>"; };
-		03D4D33D999442689DBBB3FE /* NewCanvasSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LuminaStudio/Views/Photo/NewCanvasSheetView.swift"; sourceTree = "<group>"; };
-		97845792642243CEB29C3949 /* ExportSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LuminaStudio/Views/Photo/ExportSheetView.swift"; sourceTree = "<group>"; };
-		66B40A441034430B995DF3B0 /* ToolSidebarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LuminaStudio/Views/Photo/ToolSidebarView.swift"; sourceTree = "<group>"; };
-		829F1009268C416097129D5E /* ToolOptionsBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LuminaStudio/Views/Photo/ToolOptionsBarView.swift"; sourceTree = "<group>"; };
-		0829C1C3B9E4499F964A931F /* SelectionOverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LuminaStudio/Views/Photo/SelectionOverlayView.swift"; sourceTree = "<group>"; };
-		69BC2A1143C94A53B23AB5D9 /* TransformOverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LuminaStudio/Views/Photo/TransformOverlayView.swift"; sourceTree = "<group>"; };
-		17F925C519B94E99B3B4FBE2 /* CropOverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LuminaStudio/Views/Photo/CropOverlayView.swift"; sourceTree = "<group>"; };
-		00D94199574443A8933E7272 /* BrushSettingsSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LuminaStudio/Views/Photo/BrushSettingsSheetView.swift"; sourceTree = "<group>"; };
-		1F8EA7079FFB4319A0FE1C8A /* CurvesSplineEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LuminaStudio/Views/Photo/CurvesSplineEditorView.swift"; sourceTree = "<group>"; };
-		765D65B8D3E641DEB88A521A /* HistogramView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LuminaStudio/Views/Photo/HistogramView.swift"; sourceTree = "<group>"; };
-		D5CE567A9A044FF8BF8CA0B3 /* AdjustmentsSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LuminaStudio/Views/Photo/AdjustmentsSheetView.swift"; sourceTree = "<group>"; };
-		E1E5AA286A3341E386F85A16 /* FiltersSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LuminaStudio/Views/Photo/FiltersSheetView.swift"; sourceTree = "<group>"; };
-		5CA399A1C6FF467E984C08AF /* MagnifierLoupeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LuminaStudio/Views/Cutout/MagnifierLoupeView.swift"; sourceTree = "<group>"; };
-		615725FCA1A74BE98BA83630 /* CutoutRefineStudioView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LuminaStudio/Views/Cutout/CutoutRefineStudioView.swift"; sourceTree = "<group>"; };
-		529CBFEA56204E54A4D10803 /* RulerGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LuminaStudio/Views/Photo/RulerGridView.swift"; sourceTree = "<group>"; };
-		070E8E252CE5408DB714CB2F /* TextAndShapeSheetsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LuminaStudio/Views/Photo/TextAndShapeSheetsView.swift"; sourceTree = "<group>"; };
-		01645082378648BB97B3D05B /* VectorWorkspacePlaceholderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LuminaStudio/Views/Vector/VectorWorkspacePlaceholderView.swift"; sourceTree = "<group>"; };
-		2373F818228647AAAB97C995 /* CollageWorkspacePlaceholderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LuminaStudio/Views/Collage/CollageWorkspacePlaceholderView.swift"; sourceTree = "<group>"; };
-		3207222570C549C0B338D05F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "LuminaStudio/Resources/Info.plist"; sourceTree = "<group>"; };
-		AFFC7C7537084377B5236621 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = "LuminaStudio/Resources/Localizable.xcstrings"; sourceTree = "<group>"; };
-		B8847F24BFC44F999458FD99 /* LuminaStudio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LuminaStudio.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8A17096B4CB94B6F9ECD3EC5 /* LuminaStudioApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LuminaStudio/App/LuminaStudioApp.swift"; sourceTree = "<group>"; };
+		22DB5E1486B346FD904499D7 /* RootCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LuminaStudio/App/RootCoordinator.swift"; sourceTree = "<group>"; };
+		F19952066A4A48D7A113C26C /* PhotoEditorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LuminaStudio/ViewModels/PhotoEditorViewModel.swift"; sourceTree = "<group>"; };
+		E514821E0F2B4844A954A5D7 /* WorkspaceContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LuminaStudio/Views/WorkspaceContainerView.swift"; sourceTree = "<group>"; };
+		EC442D64C7F6488592C2234C /* PhotoWorkspaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LuminaStudio/Views/Photo/PhotoWorkspaceView.swift"; sourceTree = "<group>"; };
+		008215A316134B8EB91E2CF4 /* MetalCanvasRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LuminaStudio/Views/Photo/MetalCanvasRepresentable.swift"; sourceTree = "<group>"; };
+		A16F7FAA850243F792EBADA9 /* LayerPanelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LuminaStudio/Views/Photo/LayerPanelView.swift"; sourceTree = "<group>"; };
+		BE799B3FDC5F417599ADDBA1 /* HistoryPanelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LuminaStudio/Views/Photo/HistoryPanelView.swift"; sourceTree = "<group>"; };
+		CC0B94875A08479CAAC68E7F /* NewCanvasSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LuminaStudio/Views/Photo/NewCanvasSheetView.swift"; sourceTree = "<group>"; };
+		94B9474656CE47A3A4CAE204 /* ExportSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LuminaStudio/Views/Photo/ExportSheetView.swift"; sourceTree = "<group>"; };
+		FF07D5406AC444E5A376AFB3 /* ToolSidebarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LuminaStudio/Views/Photo/ToolSidebarView.swift"; sourceTree = "<group>"; };
+		218F34DE1AEE4D2D9AB2E8CE /* ToolOptionsBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LuminaStudio/Views/Photo/ToolOptionsBarView.swift"; sourceTree = "<group>"; };
+		10A827BE33EF414DA1B3C1D8 /* SelectionOverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LuminaStudio/Views/Photo/SelectionOverlayView.swift"; sourceTree = "<group>"; };
+		EE765602DE7B437CAF7BCF2E /* TransformOverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LuminaStudio/Views/Photo/TransformOverlayView.swift"; sourceTree = "<group>"; };
+		BED85D82759742CA802CC9DF /* CropOverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LuminaStudio/Views/Photo/CropOverlayView.swift"; sourceTree = "<group>"; };
+		861295EC87924806A3D0836C /* BrushSettingsSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LuminaStudio/Views/Photo/BrushSettingsSheetView.swift"; sourceTree = "<group>"; };
+		7D01B68AEC7C42C7BF31FD32 /* CurvesSplineEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LuminaStudio/Views/Photo/CurvesSplineEditorView.swift"; sourceTree = "<group>"; };
+		597EFC5CAA0A416A8FC8C157 /* HistogramView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LuminaStudio/Views/Photo/HistogramView.swift"; sourceTree = "<group>"; };
+		A4D245A3039D4BFDACEAB820 /* AdjustmentsSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LuminaStudio/Views/Photo/AdjustmentsSheetView.swift"; sourceTree = "<group>"; };
+		F5E260201AEF4B10A5FD2EF7 /* FiltersSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LuminaStudio/Views/Photo/FiltersSheetView.swift"; sourceTree = "<group>"; };
+		CA8169375E954DECB2E63EE4 /* MagnifierLoupeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LuminaStudio/Views/Cutout/MagnifierLoupeView.swift"; sourceTree = "<group>"; };
+		AAA907875C044BE6A629CD3D /* CutoutRefineStudioView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LuminaStudio/Views/Cutout/CutoutRefineStudioView.swift"; sourceTree = "<group>"; };
+		4BC35E8A03E6449AB0308124 /* RulerGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LuminaStudio/Views/Photo/RulerGridView.swift"; sourceTree = "<group>"; };
+		89C6902751BA430DABAB8E9B /* TextAndShapeSheetsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LuminaStudio/Views/Photo/TextAndShapeSheetsView.swift"; sourceTree = "<group>"; };
+		5A69844025044F60864E5978 /* VectorEditorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LuminaStudio/ViewModels/VectorEditorViewModel.swift"; sourceTree = "<group>"; };
+		2093E36760394FF5B098C61C /* VectorWorkspaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LuminaStudio/Views/Vector/VectorWorkspaceView.swift"; sourceTree = "<group>"; };
+		12B7DF0AA0EE45649412D28D /* VectorCanvasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LuminaStudio/Views/Vector/VectorCanvasView.swift"; sourceTree = "<group>"; };
+		54595D8C32A24979A7D8ABCD /* VectorToolbarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LuminaStudio/Views/Vector/VectorToolbarView.swift"; sourceTree = "<group>"; };
+		99E07C2CFC244D8E9381B370 /* VectorPropertiesPanelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LuminaStudio/Views/Vector/VectorPropertiesPanelView.swift"; sourceTree = "<group>"; };
+		A9B39DABA2224877A80F6DEF /* VectorTraceSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LuminaStudio/Views/Vector/VectorTraceSheetView.swift"; sourceTree = "<group>"; };
+		85E02E9B51F8477D80F69AFA /* VectorExportSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LuminaStudio/Views/Vector/VectorExportSheetView.swift"; sourceTree = "<group>"; };
+		702C56DB4A93458EB75B7035 /* VectorWorkspacePlaceholderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LuminaStudio/Views/Vector/VectorWorkspacePlaceholderView.swift"; sourceTree = "<group>"; };
+		9F058D49D7A541718BC06AD6 /* CollageWorkspacePlaceholderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LuminaStudio/Views/Collage/CollageWorkspacePlaceholderView.swift"; sourceTree = "<group>"; };
+		2C27B9508A1649DD9512CDF7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "LuminaStudio/Resources/Info.plist"; sourceTree = "<group>"; };
+		DE5001606FD645528DEB8263 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = "LuminaStudio/Resources/Localizable.xcstrings"; sourceTree = "<group>"; };
+		E85C5F807F0E4C7585C2F98F /* LuminaStudio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LuminaStudio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		9927BE62051045C68361C3A1 /* Frameworks */ = {
+		782A7D216E41423185849A0C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -79,53 +93,60 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		B3DE2E527E2C486D9948E6FF = {
+		5357C67B71BD4D5FAFA22078 = {
 			isa = PBXGroup;
 			children = (
-				FE47546735784C4E949B2DE8 /* LuminaStudio */,
-				A2ABD4167C2947CEABFC1C76 /* Products */,
+				C47525D0BA2E4D878DA7DCD6 /* LuminaStudio */,
+				742500E61FBB4F0FBA891DB9 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		A2ABD4167C2947CEABFC1C76 /* Products */ = {
+		742500E61FBB4F0FBA891DB9 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				B8847F24BFC44F999458FD99 /* LuminaStudio.app */,
+				E85C5F807F0E4C7585C2F98F /* LuminaStudio.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		FE47546735784C4E949B2DE8 /* LuminaStudio */ = {
+		C47525D0BA2E4D878DA7DCD6 /* LuminaStudio */ = {
 			isa = PBXGroup;
 			children = (
-				BDE0E9A5D03F4C20986E2DC0 /* LuminaStudioApp.swift */,
-				8978F30B1C654ABBBF4C29A8 /* RootCoordinator.swift */,
-				D01CD27BCB9F4B8482B573DF /* PhotoEditorViewModel.swift */,
-				89D2E3D0E3A24901B15AC7F5 /* WorkspaceContainerView.swift */,
-				7B37AEDEA3364F4E8E074CE7 /* PhotoWorkspaceView.swift */,
-				536AEE18C2BD481E81B1DCEC /* MetalCanvasRepresentable.swift */,
-				B41D59F6DC954D8191A70729 /* LayerPanelView.swift */,
-				117B9CA0F38C4615A37750F5 /* HistoryPanelView.swift */,
-				03D4D33D999442689DBBB3FE /* NewCanvasSheetView.swift */,
-				97845792642243CEB29C3949 /* ExportSheetView.swift */,
-				66B40A441034430B995DF3B0 /* ToolSidebarView.swift */,
-				829F1009268C416097129D5E /* ToolOptionsBarView.swift */,
-				0829C1C3B9E4499F964A931F /* SelectionOverlayView.swift */,
-				69BC2A1143C94A53B23AB5D9 /* TransformOverlayView.swift */,
-				17F925C519B94E99B3B4FBE2 /* CropOverlayView.swift */,
-				00D94199574443A8933E7272 /* BrushSettingsSheetView.swift */,
-				1F8EA7079FFB4319A0FE1C8A /* CurvesSplineEditorView.swift */,
-				765D65B8D3E641DEB88A521A /* HistogramView.swift */,
-				D5CE567A9A044FF8BF8CA0B3 /* AdjustmentsSheetView.swift */,
-				E1E5AA286A3341E386F85A16 /* FiltersSheetView.swift */,
-				5CA399A1C6FF467E984C08AF /* MagnifierLoupeView.swift */,
-				615725FCA1A74BE98BA83630 /* CutoutRefineStudioView.swift */,
-				529CBFEA56204E54A4D10803 /* RulerGridView.swift */,
-				070E8E252CE5408DB714CB2F /* TextAndShapeSheetsView.swift */,
-				01645082378648BB97B3D05B /* VectorWorkspacePlaceholderView.swift */,
-				2373F818228647AAAB97C995 /* CollageWorkspacePlaceholderView.swift */,
-				3207222570C549C0B338D05F /* Info.plist */,
-				AFFC7C7537084377B5236621 /* Localizable.xcstrings */,
+				8A17096B4CB94B6F9ECD3EC5 /* LuminaStudioApp.swift */,
+				22DB5E1486B346FD904499D7 /* RootCoordinator.swift */,
+				F19952066A4A48D7A113C26C /* PhotoEditorViewModel.swift */,
+				E514821E0F2B4844A954A5D7 /* WorkspaceContainerView.swift */,
+				EC442D64C7F6488592C2234C /* PhotoWorkspaceView.swift */,
+				008215A316134B8EB91E2CF4 /* MetalCanvasRepresentable.swift */,
+				A16F7FAA850243F792EBADA9 /* LayerPanelView.swift */,
+				BE799B3FDC5F417599ADDBA1 /* HistoryPanelView.swift */,
+				CC0B94875A08479CAAC68E7F /* NewCanvasSheetView.swift */,
+				94B9474656CE47A3A4CAE204 /* ExportSheetView.swift */,
+				FF07D5406AC444E5A376AFB3 /* ToolSidebarView.swift */,
+				218F34DE1AEE4D2D9AB2E8CE /* ToolOptionsBarView.swift */,
+				10A827BE33EF414DA1B3C1D8 /* SelectionOverlayView.swift */,
+				EE765602DE7B437CAF7BCF2E /* TransformOverlayView.swift */,
+				BED85D82759742CA802CC9DF /* CropOverlayView.swift */,
+				861295EC87924806A3D0836C /* BrushSettingsSheetView.swift */,
+				7D01B68AEC7C42C7BF31FD32 /* CurvesSplineEditorView.swift */,
+				597EFC5CAA0A416A8FC8C157 /* HistogramView.swift */,
+				A4D245A3039D4BFDACEAB820 /* AdjustmentsSheetView.swift */,
+				F5E260201AEF4B10A5FD2EF7 /* FiltersSheetView.swift */,
+				CA8169375E954DECB2E63EE4 /* MagnifierLoupeView.swift */,
+				AAA907875C044BE6A629CD3D /* CutoutRefineStudioView.swift */,
+				4BC35E8A03E6449AB0308124 /* RulerGridView.swift */,
+				89C6902751BA430DABAB8E9B /* TextAndShapeSheetsView.swift */,
+				5A69844025044F60864E5978 /* VectorEditorViewModel.swift */,
+				2093E36760394FF5B098C61C /* VectorWorkspaceView.swift */,
+				12B7DF0AA0EE45649412D28D /* VectorCanvasView.swift */,
+				54595D8C32A24979A7D8ABCD /* VectorToolbarView.swift */,
+				99E07C2CFC244D8E9381B370 /* VectorPropertiesPanelView.swift */,
+				A9B39DABA2224877A80F6DEF /* VectorTraceSheetView.swift */,
+				85E02E9B51F8477D80F69AFA /* VectorExportSheetView.swift */,
+				702C56DB4A93458EB75B7035 /* VectorWorkspacePlaceholderView.swift */,
+				9F058D49D7A541718BC06AD6 /* CollageWorkspacePlaceholderView.swift */,
+				2C27B9508A1649DD9512CDF7 /* Info.plist */,
+				DE5001606FD645528DEB8263 /* Localizable.xcstrings */,
 			);
 			name = LuminaStudio;
 			sourceTree = "<group>";
@@ -133,13 +154,13 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		678786776D71469485DD9F38 /* LuminaStudio */ = {
+		B5B6E00659FF458C9ABD9455 /* LuminaStudio */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5FBD50D3B14F420D9443C574 /* Build configuration list for PBXNativeTarget "LuminaStudio" */;
+			buildConfigurationList = 12A3CB107E1047299DBC402A /* Build configuration list for PBXNativeTarget "LuminaStudio" */;
 			buildPhases = (
-				08938801BE3F4D5CA426187E /* Sources */,
-				9927BE62051045C68361C3A1 /* Frameworks */,
-				4C470A77E6164FF6A9564EEE /* Resources */,
+				390192BC97A44BF4899B5D87 /* Sources */,
+				782A7D216E41423185849A0C /* Frameworks */,
+				7FAD38C1719449FE828742DB /* Resources */,
 			);
 			buildRules = (
 			);
@@ -147,25 +168,25 @@
 			);
 			name = LuminaStudio;
 			productName = LuminaStudio;
-			productReference = B8847F24BFC44F999458FD99 /* LuminaStudio.app */;
+			productReference = E85C5F807F0E4C7585C2F98F /* LuminaStudio.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		A1038D1BFFFB482BB77AC516 /* Project object */ = {
+		E1AAE0880A174F3486657907 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1500;
 				LastUpgradeCheck = 1500;
 				TargetAttributes = {
-					678786776D71469485DD9F38 = {
+					B5B6E00659FF458C9ABD9455 = {
 						CreatedOnToolsConfirmation = 1;
 					};
 				};
 			};
-			buildConfigurationList = 6C57521F0D6D406980908726 /* Build configuration list for PBXProject "LuminaStudio" */;
+			buildConfigurationList = A3DF2A631F8A4010BA0B6C8B /* Build configuration list for PBXProject "LuminaStudio" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -173,65 +194,72 @@
 				en,
 				Base,
 			);
-			mainGroup = B3DE2E527E2C486D9948E6FF;
-			productRefGroup = A2ABD4167C2947CEABFC1C76 /* Products */;
+			mainGroup = 5357C67B71BD4D5FAFA22078;
+			productRefGroup = 742500E61FBB4F0FBA891DB9 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				678786776D71469485DD9F38 /* LuminaStudio */,
+				B5B6E00659FF458C9ABD9455 /* LuminaStudio */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		4C470A77E6164FF6A9564EEE /* Resources */ = {
+		7FAD38C1719449FE828742DB /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E3EDF5420EDC4E138B25DCC5 /* Localizable.xcstrings in Resources */,
+				900172203EA6457B95D840FB /* Localizable.xcstrings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		08938801BE3F4D5CA426187E /* Sources */ = {
+		390192BC97A44BF4899B5D87 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AC38756E608E4FECA60E2CBB /* LuminaStudioApp.swift in Sources */,
-				4D77C03012BC4256BCCFBE82 /* RootCoordinator.swift in Sources */,
-				60509EFDF3A7406AB86E0901 /* PhotoEditorViewModel.swift in Sources */,
-				AC0279E0725E482682BD6AE7 /* WorkspaceContainerView.swift in Sources */,
-				1BA2EDFA0BC44283ADCAB251 /* PhotoWorkspaceView.swift in Sources */,
-				28E9EFE6B5104A9D9C8F006C /* MetalCanvasRepresentable.swift in Sources */,
-				C6401CC7FDAF468D91FB54CD /* LayerPanelView.swift in Sources */,
-				217B2C140F194ED5BC3BE39B /* HistoryPanelView.swift in Sources */,
-				BDA9C714A1984DECB9D1519A /* NewCanvasSheetView.swift in Sources */,
-				9ED2066ABA11497AA8A5E83F /* ExportSheetView.swift in Sources */,
-				2A7187F9BF0C4FEEBD8E5D52 /* ToolSidebarView.swift in Sources */,
-				7D896A0E99504051AC2B3344 /* ToolOptionsBarView.swift in Sources */,
-				435A724485FD4B6AB26C2F25 /* SelectionOverlayView.swift in Sources */,
-				03162AC68B5144B183CA8C22 /* TransformOverlayView.swift in Sources */,
-				38CC6A2FC3E64B58A59C73DD /* CropOverlayView.swift in Sources */,
-				77F9F10477C842FF85FBA8BD /* BrushSettingsSheetView.swift in Sources */,
-				56BBA52F21F94B8BB1845FE7 /* CurvesSplineEditorView.swift in Sources */,
-				EF7202DF31F14C5E90E21F41 /* HistogramView.swift in Sources */,
-				9124A9C33FE4422AB7E5453C /* AdjustmentsSheetView.swift in Sources */,
-				AA7A1F8DB100442E9647F358 /* FiltersSheetView.swift in Sources */,
-				55877D7553C2496A9F2D59CB /* MagnifierLoupeView.swift in Sources */,
-				B72A2B19F6524EE69C0B3AA9 /* CutoutRefineStudioView.swift in Sources */,
-				67768631F664495D95507A8E /* RulerGridView.swift in Sources */,
-				8D7434CE80674E4096B5E325 /* TextAndShapeSheetsView.swift in Sources */,
-				2F3E2AEFDF184C38A5F7F8C1 /* VectorWorkspacePlaceholderView.swift in Sources */,
-				F5B0946CEDFC430F86524B0E /* CollageWorkspacePlaceholderView.swift in Sources */,
+				F9933D7AEB004E4AA59D4C5E /* LuminaStudioApp.swift in Sources */,
+				A0B96DC941DC4A67B13F9B90 /* RootCoordinator.swift in Sources */,
+				94431DC13D2042F18D7F07BD /* PhotoEditorViewModel.swift in Sources */,
+				CF4D2574EEAF43BE9CA8FEEA /* WorkspaceContainerView.swift in Sources */,
+				156FF32DD8D94D5AB0BF829D /* PhotoWorkspaceView.swift in Sources */,
+				06BB24E0FAC04EFB880BCC4F /* MetalCanvasRepresentable.swift in Sources */,
+				0C408053D164470EA194712E /* LayerPanelView.swift in Sources */,
+				84D158A3F5754AEC859D411A /* HistoryPanelView.swift in Sources */,
+				BFE545FBC08A4CD09A2D3653 /* NewCanvasSheetView.swift in Sources */,
+				0344A6B7DFE24B8AA7A52EF3 /* ExportSheetView.swift in Sources */,
+				BB6299BF68CC4CE0A1976496 /* ToolSidebarView.swift in Sources */,
+				F1D3E192D48E4717B0304E7C /* ToolOptionsBarView.swift in Sources */,
+				D5B3E5C963D0495E93156477 /* SelectionOverlayView.swift in Sources */,
+				CFAD088BF6C847398AC47A2C /* TransformOverlayView.swift in Sources */,
+				C47A85F40D0D4F39B6C61615 /* CropOverlayView.swift in Sources */,
+				A841811A7628414EBF2A1D3F /* BrushSettingsSheetView.swift in Sources */,
+				83DBD9D660A54BD89413F261 /* CurvesSplineEditorView.swift in Sources */,
+				B8250276F21849F3951F0061 /* HistogramView.swift in Sources */,
+				E3DD4C8E84AA412D8692557F /* AdjustmentsSheetView.swift in Sources */,
+				B5487A871C3745F6BF543B9C /* FiltersSheetView.swift in Sources */,
+				EF07234466E5469D98968930 /* MagnifierLoupeView.swift in Sources */,
+				AE42DCF0159148D6994AF116 /* CutoutRefineStudioView.swift in Sources */,
+				551B7F7635E24B2D812B74D8 /* RulerGridView.swift in Sources */,
+				27CDAAF890FD45E6B22AD012 /* TextAndShapeSheetsView.swift in Sources */,
+				288185731E104AF08AB0464E /* VectorEditorViewModel.swift in Sources */,
+				279D1FACCF8B4FEC851ED790 /* VectorWorkspaceView.swift in Sources */,
+				611D160CD44946EBB4706512 /* VectorCanvasView.swift in Sources */,
+				CA8B19616FE9484C8D001A5F /* VectorToolbarView.swift in Sources */,
+				710081D3CD2C43FB8509A6E2 /* VectorPropertiesPanelView.swift in Sources */,
+				7C9DCAE3B2324248AF75F34D /* VectorTraceSheetView.swift in Sources */,
+				7633AD41B3D442C88CDC63B2 /* VectorExportSheetView.swift in Sources */,
+				DB0E7B7C16F440B79DF2ABFD /* VectorWorkspacePlaceholderView.swift in Sources */,
+				25E3D644DFAC405F88B50EEA /* CollageWorkspacePlaceholderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		C75104B62F1B4BEA8BC60E3A /* Debug */ = {
+		5711F08E394A4EBEA1977B0A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -260,7 +288,7 @@
 			};
 			name = Debug;
 		};
-		5FBFCFD5FB80441F8BF61F97 /* Release */ = {
+		8CA05204414D4C9E83797853 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -283,7 +311,7 @@
 			};
 			name = Release;
 		};
-		9B30EE6714A64B15A05C2A59 /* Debug */ = {
+		60CBCD1999554236ADB485BD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -304,7 +332,7 @@
 			};
 			name = Debug;
 		};
-		4D6380F39CD64390B9A4D9EE /* Release */ = {
+		E4840174D58940DFA8751EBB /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -328,20 +356,20 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		6C57521F0D6D406980908726 /* Build configuration list for PBXProject "LuminaStudio" */ = {
+		A3DF2A631F8A4010BA0B6C8B /* Build configuration list for PBXProject "LuminaStudio" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				C75104B62F1B4BEA8BC60E3A /* Debug */,
-				5FBFCFD5FB80441F8BF61F97 /* Release */,
+				5711F08E394A4EBEA1977B0A /* Debug */,
+				8CA05204414D4C9E83797853 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5FBD50D3B14F420D9443C574 /* Build configuration list for PBXNativeTarget "LuminaStudio" */ = {
+		12A3CB107E1047299DBC402A /* Build configuration list for PBXNativeTarget "LuminaStudio" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				9B30EE6714A64B15A05C2A59 /* Debug */,
-				4D6380F39CD64390B9A4D9EE /* Release */,
+				60CBCD1999554236ADB485BD /* Debug */,
+				E4840174D58940DFA8751EBB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -349,5 +377,5 @@
 /* End XCConfigurationList section */
 
 	};
-	rootObject = A1038D1BFFFB482BB77AC516 /* Project object */;
+	rootObject = E1AAE0880A174F3486657907 /* Project object */;
 }

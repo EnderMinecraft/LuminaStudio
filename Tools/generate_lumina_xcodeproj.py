@@ -34,6 +34,13 @@ def main():
         ("CutoutRefineStudioView.swift", "LuminaStudio/Views/Cutout/CutoutRefineStudioView.swift"),
         ("RulerGridView.swift", "LuminaStudio/Views/Photo/RulerGridView.swift"),
         ("TextAndShapeSheetsView.swift", "LuminaStudio/Views/Photo/TextAndShapeSheetsView.swift"),
+        ("VectorEditorViewModel.swift", "LuminaStudio/ViewModels/VectorEditorViewModel.swift"),
+        ("VectorWorkspaceView.swift", "LuminaStudio/Views/Vector/VectorWorkspaceView.swift"),
+        ("VectorCanvasView.swift", "LuminaStudio/Views/Vector/VectorCanvasView.swift"),
+        ("VectorToolbarView.swift", "LuminaStudio/Views/Vector/VectorToolbarView.swift"),
+        ("VectorPropertiesPanelView.swift", "LuminaStudio/Views/Vector/VectorPropertiesPanelView.swift"),
+        ("VectorTraceSheetView.swift", "LuminaStudio/Views/Vector/VectorTraceSheetView.swift"),
+        ("VectorExportSheetView.swift", "LuminaStudio/Views/Vector/VectorExportSheetView.swift"),
         ("VectorWorkspacePlaceholderView.swift", "LuminaStudio/Views/Vector/VectorWorkspacePlaceholderView.swift"),
         ("CollageWorkspacePlaceholderView.swift", "LuminaStudio/Views/Collage/CollageWorkspacePlaceholderView.swift"),
     ]
