@@ -132,6 +132,42 @@
         "en" : { "stringUnit" : { "state" : "translated", "value" : "Export (SVG / PDF / PNG)" } },
         "vi" : { "stringUnit" : { "state" : "translated", "value" : "Xuất file (SVG / PDF / PNG)" } }
       }
+    },
+    "Templates" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Templates" } },
+        "vi" : { "stringUnit" : { "state" : "translated", "value" : "Mẫu ghép" } }
+      }
+    },
+    "Open in Photo" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Open in Photo" } },
+        "vi" : { "stringUnit" : { "state" : "translated", "value" : "Mở trong phòng Ảnh" } }
+      }
+    },
+    "Spacing" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Spacing" } },
+        "vi" : { "stringUnit" : { "state" : "translated", "value" : "Khoảng cách" } }
+      }
+    },
+    "Margin" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Margin" } },
+        "vi" : { "stringUnit" : { "state" : "translated", "value" : "Lề ngoài" } }
+      }
+    },
+    "Radius" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Radius" } },
+        "vi" : { "stringUnit" : { "state" : "translated", "value" : "Bo góc" } }
+      }
+    },
+    "Export Collage" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Export Collage" } },
+        "vi" : { "stringUnit" : { "state" : "translated", "value" : "Xuất ảnh ghép" } }
+      }
     }
   },
   "version" : "1.0"

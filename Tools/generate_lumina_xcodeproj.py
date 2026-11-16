@@ -41,6 +41,13 @@ def main():
         ("VectorPropertiesPanelView.swift", "LuminaStudio/Views/Vector/VectorPropertiesPanelView.swift"),
         ("VectorTraceSheetView.swift", "LuminaStudio/Views/Vector/VectorTraceSheetView.swift"),
         ("VectorExportSheetView.swift", "LuminaStudio/Views/Vector/VectorExportSheetView.swift"),
+        ("CollageEditorViewModel.swift", "LuminaStudio/ViewModels/CollageEditorViewModel.swift"),
+        ("CollageWorkspaceView.swift", "LuminaStudio/Views/Collage/CollageWorkspaceView.swift"),
+        ("CollageCanvasView.swift", "LuminaStudio/Views/Collage/CollageCanvasView.swift"),
+        ("CollageControlsPanelView.swift", "LuminaStudio/Views/Collage/CollageControlsPanelView.swift"),
+        ("CollageCellToolbarView.swift", "LuminaStudio/Views/Collage/CollageCellToolbarView.swift"),
+        ("CollageTemplateBrowserView.swift", "LuminaStudio/Views/Collage/CollageTemplateBrowserView.swift"),
+        ("CollageExportSheetView.swift", "LuminaStudio/Views/Collage/CollageExportSheetView.swift"),
         ("VectorWorkspacePlaceholderView.swift", "LuminaStudio/Views/Vector/VectorWorkspacePlaceholderView.swift"),
         ("CollageWorkspacePlaceholderView.swift", "LuminaStudio/Views/Collage/CollageWorkspacePlaceholderView.swift"),
     ]

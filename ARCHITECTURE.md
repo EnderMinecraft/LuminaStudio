@@ -110,10 +110,30 @@ The `RootCoordinator` lives at the application root:
 
 ---
 
-## CollageCore: Binary Space Partitioning (BSP) Engine
-- **Tree Structure:** `CollageLayoutNode` recursively splits layout rectangles horizontally or vertically with normalized ratios.
-- **Responsive Normalization:** Any template reflows automatically to any aspect ratio (1:1, 4:5, 9:16, 16:9, A4) without losing cell alignments.
-- **Template Registry:** 40+ built-in templates parameterized for 2 to 12 photos.
+## CollageCore: Binary Space Partitioning (BSP) Engine (Phase 7)
+1. **Tree Structure & Dynamic Geometry Solver (`BSPLayoutSolver`):**
+   - Recursive layout tree: `CollageLayoutNode` (either `.leaf(id, cell)` or `.split(id, direction, ratio, first, second)`).
+   - Solves bounding rectangles and interactive divider line hit-boxes for any target aspect ratio in $O(N)$ time.
+   - Automatically handles outer margins and inner cell spacing with symmetrical offsets.
+
+2. **Magnetic Snapping & Divider Engine (`CollageDividerEngine`):**
+   - Recalculates subtree ratios during gesture interactions.
+   - Snaps to harmonic ratio attractors ($0.25, 0.333, 0.5, 0.667, 0.75$) with threshold $\pm 0.025$.
+   - Preserves adjacent cell proportions across deep nested trees.
+
+3. **Cell Transforms & Swapping (`CollageCellEngine`):**
+   - Modifies leaf cell content offsets, zoom scales, 90° rotation quarter turns, and horizontal/vertical flip flags without disturbing layout topology.
+   - Implements two-pass atomic swap between any two cell nodes.
+
+4. **Off-Screen High-Res Rendering (`CollageRenderEngine`):**
+   - Direct rasterization of the solved BSP tree to 32-bit premultiplied RGBA buffers up to 4096 px.
+   - Applies smooth rounded-rect clipping paths per cell with configurable corner radius.
+
+5. **Cross-Workspace Unrolling ("Open in Photo"):**
+   - Converts the collage layout into a multi-layered `LuminaDocument`:
+     - Creates a base solid background layer.
+     - For each solved cell, builds an independent raster layer positioned at `item.rect.origin`.
+     - Generates an analytical 8-bit rounded-rectangle `LayerMask` ensuring non-destructive corner rounding inside the raster editor.
 
 ---
 

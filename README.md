@@ -63,11 +63,14 @@ Lumina Studio is a professional-grade, multi-workspace image editing suite for i
      - Raster PNG export at 1x, 2x, and 3x scale.
    - **Cross-Workspace Interoperability:** "Send to Photo Workspace" renders vector artwork into an editable `VectorLayer` inside the active `LuminaDocument` without loss of state.
 
-3. **Collage Mini Mode:**
-   - Binary Space Partitioning (BSP) layout tree engine.
-   - Over 40 responsive built-in templates (grids, strips, hero, mosaics, L-shapes).
-   - Live divider dragging with magnetic ratio snapping.
-   - Native `.luminacollage` persistence and direct handoff to Photo editor as layered documents.
+3. **Collage Mini Mode (Phase 7):**
+   - **Responsive BSP Layout Solver:** Binary Space Partitioning engine automatically reflowing any template to arbitrary canvas ratios (1:1, 4:5, 9:16, 16:9, A4) without distortion.
+   - **40+ Built-in Templates:** Full template registry covering 2 to 12 photos across 6 curated styles (Equal Splits, Hero Focus, Panoramic Strips, Balanced Grids, Dynamic Mosaics, Freeform).
+   - **Interactive Divider Dragging:** Drag any cell dividing line with magnetic ratio snapping to classic harmonic ratios (1/4, 1/3, 1/2, 2/3, 3/4) and floating snap percentage HUD.
+   - **Cell Manipulation:** Dedicated tap context toolbar supporting 90° clockwise rotation, horizontal/vertical flipping, and photo swapping between cells.
+   - **Styling & Framing:** Live sliders for inner cell spacing (0–32 px), outer margin (0–48 px), corner radius (0–36 px), and background color picker.
+   - **Cross-Workspace "Open in Photo":** Seamlessly converts the collage into a layered `LuminaDocument`. Each cell becomes an independent raster layer with an exact rounded-rectangle layer mask and spatial transform, unlocking full raster filters, adjustments, and blend modes.
+   - **Persistence & Export:** Native `.luminacollage` zipped package persistence and direct multi-resolution export to PNG, JPEG, and HEIC up to 4096 px.
 
 ---
 
