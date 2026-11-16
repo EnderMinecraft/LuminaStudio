@@ -96,6 +96,8 @@ public final class Layer: Codable, @unchecked Sendable, Identifiable, Equatable 
     public var transform: Transform2D
     public var mask: LayerMask?
     public var kind: LayerKind
+    public var isClippingMask: Bool
+    public var style: LayerStyle?
     
     // In-memory raw RGBA8 image buffer (nil if empty or tile-streamed)
     public var rawPixelData: Data?
@@ -112,6 +114,8 @@ public final class Layer: Codable, @unchecked Sendable, Identifiable, Equatable 
         transform: Transform2D = .identity,
         mask: LayerMask? = nil,
         kind: LayerKind = .raster(assetID: nil),
+        isClippingMask: Bool = false,
+        style: LayerStyle? = nil,
         rawPixelData: Data? = nil,
         pixelWidth: Int = 0,
         pixelHeight: Int = 0
@@ -125,6 +129,8 @@ public final class Layer: Codable, @unchecked Sendable, Identifiable, Equatable 
         self.transform = transform
         self.mask = mask
         self.kind = kind
+        self.isClippingMask = isClippingMask
+        self.style = style
         self.rawPixelData = rawPixelData
         self.pixelWidth = pixelWidth
         self.pixelHeight = pixelHeight
@@ -146,6 +152,8 @@ public final class Layer: Codable, @unchecked Sendable, Identifiable, Equatable 
                 height: mask!.height
             ) : nil,
             kind: kind,
+            isClippingMask: isClippingMask,
+            style: style,
             rawPixelData: rawPixelData,
             pixelWidth: pixelWidth,
             pixelHeight: pixelHeight

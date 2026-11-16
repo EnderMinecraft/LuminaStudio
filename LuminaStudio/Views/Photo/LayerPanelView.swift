@@ -64,6 +64,15 @@ public struct LayerPanelView: View {
                         }
                         .pickerStyle(.menu)
                     }
+                    
+                    HStack {
+                        Toggle("Clipping Mask", isOn: Binding(
+                            get: { active.isClippingMask },
+                            set: { active.isClippingMask = $0 }
+                        ))
+                        .font(.caption)
+                        Spacer()
+                    }
                 }
                 .padding(.horizontal)
                 .padding(.vertical, 8)

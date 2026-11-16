@@ -21,6 +21,16 @@ public struct PhotoWorkspaceView: View {
                 MetalCanvasRepresentable(viewModel: viewModel)
                     .ignoresSafeArea()
                 
+                // Rulers & Grid Overlay
+                if viewModel.showRulersAndGrid {
+                    RulerGridView(
+                        canvasSize: viewModel.document.configuration.size,
+                        viewport: viewModel.viewport,
+                        showGrid: true,
+                        showRulers: true
+                    )
+                }
+                
                 // Overlays
                 if viewModel.activeSelectionMask.hasSelection {
                     SelectionOverlayView(
@@ -99,6 +109,12 @@ public struct PhotoWorkspaceView: View {
             }
             .sheet(isPresented: $viewModel.isBrushSettingsPresented) {
                 BrushSettingsSheetView(viewModel: viewModel)
+            }
+            .sheet(isPresented: $viewModel.isTextLayerSheetPresented) {
+                NewTextLayerSheetView(viewModel: viewModel)
+            }
+            .sheet(isPresented: $viewModel.isShapeLayerSheetPresented) {
+                NewShapeLayerSheetView(viewModel: viewModel)
             }
             .sheet(isPresented: $viewModel.isAdjustmentsSheetPresented) {
                 AdjustmentsSheetView(viewModel: viewModel)

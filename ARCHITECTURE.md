@@ -60,6 +60,25 @@ The `RootCoordinator` lives at the application root:
 
 ---
 
+## EditorCore: Text, Parametric Shapes & Layer Styles (Phase 5)
+1. **Text Engine (`TextEngine`):**
+   - CoreText attributed string rasterization to 32-bit premultiplied RGBA buffers.
+   - Dynamic font metrics (ascent, descent, leading), kerning/tracking, line height, fill/stroke modes, and dynamic registration of custom TTF/OTF fonts via `CTFontManagerRegisterGraphicsFont`.
+2. **Parametric Shape Engine (`ShapeEngine`):**
+   - Direct procedural drawing for: Rectangles, Rounded Rectangles (squircle continuous curvature), Ellipses, Regular Polygons (3 to 12 vertices), Stars (configurable point count and inner radius factor), and Lines/Arrows.
+   - Antialiased CoreGraphics rendering into 8-bit RGBA buffers cached as raster or vector layers.
+3. **Layer Styles (`LayerStyle`):**
+   - Non-destructive drop shadows with customizable blur radius, angle, distance, opacity, and color.
+   - Multi-weight stroke outline (Inside, Center, Outside alignment).
+   - Radial outer glow with soft exponential decay.
+4. **Clipping Masks & Composition:**
+   - Stack-order clipping mask flag: any layer flagged with `isClippingMask` inherits the alpha channel geometry of the underlying non-clipping base layer.
+5. **Rulers, Grid & Localization:**
+   - Sub-pixel horizontal and vertical rulers with adaptive scale intervals (10px, 50px, 100px, 500px) that recompute based on viewport zoom.
+   - Native Apple String Catalog (`Localizable.xcstrings`) with English and Vietnamese translations.
+
+---
+
 ## VectorCore: Hybrid Scene Graph & Calculus
 - **Scene Graph:** Tree of `ArtboardNode` containing `VectorNode` instances (`PathNode`, `ParametricShapeNode`, `VectorTextNode`, `VectorGroupNode`).
 - **Bezier Calculus:** `BezierCurveSegment` evaluates cubic Bezier splines using Bernstein polynomials and de Casteljau subdivision.

@@ -32,6 +32,8 @@ def main():
         ("FiltersSheetView.swift", "LuminaStudio/Views/Photo/FiltersSheetView.swift"),
         ("MagnifierLoupeView.swift", "LuminaStudio/Views/Cutout/MagnifierLoupeView.swift"),
         ("CutoutRefineStudioView.swift", "LuminaStudio/Views/Cutout/CutoutRefineStudioView.swift"),
+        ("RulerGridView.swift", "LuminaStudio/Views/Photo/RulerGridView.swift"),
+        ("TextAndShapeSheetsView.swift", "LuminaStudio/Views/Photo/TextAndShapeSheetsView.swift"),
         ("VectorWorkspacePlaceholderView.swift", "LuminaStudio/Views/Vector/VectorWorkspacePlaceholderView.swift"),
         ("CollageWorkspacePlaceholderView.swift", "LuminaStudio/Views/Collage/CollageWorkspacePlaceholderView.swift"),
     ]
@@ -43,6 +45,8 @@ def main():
         file_entries[name] = {"path": rel_path, "f_ref": f_ref, "b_ref": b_ref}
         
     info_f_ref = gen_id()
+    strings_f_ref = gen_id()
+    strings_b_ref = gen_id()
     app_f_ref = gen_id()
     
     sources_phase_id = gen_id()
@@ -76,6 +80,7 @@ def main():
 """
     for name, d in file_entries.items():
         pbx += f'\t\t{d["b_ref"]} /* {name} in Sources */ = {{isa = PBXBuildFile; fileRef = {d["f_ref"]} /* {name} */; }};\n'
+    pbx += f'\t\t{strings_b_ref} /* Localizable.xcstrings in Resources */ = {{isa = PBXBuildFile; fileRef = {strings_f_ref} /* Localizable.xcstrings */; }};\n'
 
     pbx += """/* End PBXBuildFile section */
 
@@ -85,6 +90,7 @@ def main():
         pbx += f'\t\t{d["f_ref"]} /* {name} */ = {{isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "{d["path"]}"; sourceTree = "{group_str}"; }};\n'
 
     pbx += f'\t\t{info_f_ref} /* Info.plist */ = {{isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "LuminaStudio/Resources/Info.plist"; sourceTree = "{group_str}"; }};\n'
+    pbx += f'\t\t{strings_f_ref} /* Localizable.xcstrings */ = {{isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = "LuminaStudio/Resources/Localizable.xcstrings"; sourceTree = "{group_str}"; }};\n'
     pbx += f'\t\t{app_f_ref} /* LuminaStudio.app */ = {{isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LuminaStudio.app; sourceTree = BUILT_PRODUCTS_DIR; }};\n'
     pbx += """/* End PBXFileReference section */
 
@@ -123,6 +129,7 @@ def main():
     for name, d in file_entries.items():
         pbx += f'\t\t\t\t{d["f_ref"]} /* {name} */,\n'
     pbx += f'\t\t\t\t{info_f_ref} /* Info.plist */,\n'
+    pbx += f'\t\t\t\t{strings_f_ref} /* Localizable.xcstrings */,\n'
     pbx += f"""\t\t\t);
 \t\t\tname = LuminaStudio;
 \t\t\tsourceTree = "{group_str}";
@@ -185,6 +192,7 @@ def main():
 \t\t\tisa = PBXResourcesBuildPhase;
 \t\t\tbuildActionMask = 2147483647;
 \t\t\tfiles = (
+\t\t\t\t{strings_b_ref} /* Localizable.xcstrings in Resources */,
 \t\t\t);
 \t\t\trunOnlyForDeploymentPostprocessing = 0;
 \t\t}};

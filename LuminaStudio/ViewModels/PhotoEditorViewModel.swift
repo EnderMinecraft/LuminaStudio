@@ -89,6 +89,9 @@ public final class PhotoEditorViewModel: @unchecked Sendable {
     public var isExportSheetPresented: Bool = false
     public var isPhotoPickerPresented: Bool = false
     public var isBrushSettingsPresented: Bool = false
+    public var isTextLayerSheetPresented: Bool = false
+    public var isShapeLayerSheetPresented: Bool = false
+    public var showRulersAndGrid: Bool = false
     public var statusMessage: String = "Ready"
     
     public init(document: LuminaDocument, commandManager: CommandManager) {

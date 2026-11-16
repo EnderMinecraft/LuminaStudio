@@ -1,0 +1,90 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "Photo" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Photo" } },
+        "vi" : { "stringUnit" : { "state" : "translated", "value" : "Ảnh" } }
+      }
+    },
+    "Vector" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Vector" } },
+        "vi" : { "stringUnit" : { "state" : "translated", "value" : "Véc-tơ" } }
+      }
+    },
+    "Collage" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Collage" } },
+        "vi" : { "stringUnit" : { "state" : "translated", "value" : "Ghép ảnh" } }
+      }
+    },
+    "Layers" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Layers" } },
+        "vi" : { "stringUnit" : { "state" : "translated", "value" : "Lớp" } }
+      }
+    },
+    "History" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "History" } },
+        "vi" : { "stringUnit" : { "state" : "translated", "value" : "Lịch sử" } }
+      }
+    },
+    "Adjustments" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Adjustments" } },
+        "vi" : { "stringUnit" : { "state" : "translated", "value" : "Chỉnh màu" } }
+      }
+    },
+    "Filters" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Filters" } },
+        "vi" : { "stringUnit" : { "state" : "translated", "value" : "Bộ lọc" } }
+      }
+    },
+    "Auto Cutout (Remove Background)" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Auto Cutout (Remove Background)" } },
+        "vi" : { "stringUnit" : { "state" : "translated", "value" : "Tách nền tự động" } }
+      }
+    },
+    "Refine Cutout Studio..." : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Refine Cutout Studio..." } },
+        "vi" : { "stringUnit" : { "state" : "translated", "value" : "Phòng tinh chỉnh tách nền..." } }
+      }
+    },
+    "Save to Photos" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Save to Photos" } },
+        "vi" : { "stringUnit" : { "state" : "translated", "value" : "Lưu vào Thư viện Ảnh" } }
+      }
+    },
+    "New Canvas" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "New Canvas" } },
+        "vi" : { "stringUnit" : { "state" : "translated", "value" : "Khung vẽ mới" } }
+      }
+    },
+    "Smart Edge" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Smart Edge" } },
+        "vi" : { "stringUnit" : { "state" : "translated", "value" : "Bắt viền thông minh" } }
+      }
+    },
+    "Hair Refine" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Hair Refine" } },
+        "vi" : { "stringUnit" : { "state" : "translated", "value" : "Tách viền tóc" } }
+      }
+    },
+    "Clean Specks" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Clean Specks" } },
+        "vi" : { "stringUnit" : { "state" : "translated", "value" : "Xoá hạt nhiễu" } }
+      }
+    }
+  },
+  "version" : "1.0"
+}

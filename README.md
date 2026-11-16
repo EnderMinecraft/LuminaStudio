@@ -25,6 +25,22 @@ Lumina Studio is a professional-grade, multi-workspace image editing suite for i
      - **Live Histogram:** Real-time 256-bin multi-channel distribution (Red, Green, Blue, Luminance).
      - **Before / After Comparison:** Instant press-and-hold bypass of all adjustments.
      - **On-Device Auto-Enhance:** Automatic histogram dynamic range leveling and color cast correction.
+   - **Cutout & Refine Studio (Phase 4):**
+     - Dedicated full-screen refine editor with auto Vision cutout (`VNGenerateForegroundInstanceMaskRequest`, `VNGeneratePersonSegmentationRequest`).
+     - 6 interactive edge overlays: Faded original (0–60% opacity slider), Red Tint (quick-mask), Checkerboard, Solid Color Matte, Mask Only, Original.
+     - Image-pixel precision brush painting (Restore and Erase) with Smart Edge edge-aware guided filter.
+     - Hair and fine-detail trimap alpha matting solver with background color decontamination.
+     - Zoom up to 3200% with procedural pixel grid at $\ge 800\%$ and mini-map viewport radar at $>400\%$.
+     - 85pt offset magnifier loupe for finger touch precision.
+     - Connected-Component Labeling (CCL) stray island and dust speck filter.
+     - Non-destructive export to Layer Mask, Duplicated Layer, or transparent PNG.
+   - **Text, Shapes & Polish (Phase 5):**
+     - **Text Engine:** CoreText-backed attributed rendering, typography properties (tracking, line height, alignment, color, fill/stroke), and custom TTF/OTF font registration.
+     - **Parametric Shape Engine:** High-performance procedural rasterization of Rectangles, Rounded Rectangles (smooth squircle corner radii), Ellipses, Polygons (3–12 sides), Stars (customizable points and inner/outer radius ratio), and Lines.
+     - **Layer Styles:** Non-destructive Drop Shadows (color, radius, offset, opacity), Strokes (inside/center/outside), and Outer Glows.
+     - **Clipping Masks & Layer Groups:** Non-destructive alpha clipping against the underlying base layer in the layer stack.
+     - **Rulers & Smart Grid Overlay:** Dynamic sub-pixel horizontal and vertical pixel rulers with zoom-scaling ticks and canvas grid overlay.
+     - **Localization:** Native String Catalog (`Localizable.xcstrings`) supporting English (`en`) and Vietnamese (`vi`).
    - Unified command system with unlimited undo/redo, two-finger tap (Undo), three-finger tap (Redo), and a visual History Panel.
    - Document persistence via `.lumina` zipped file packages.
    - Export to PNG, JPEG (quality slider), and HEIC.
