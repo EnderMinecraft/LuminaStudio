@@ -69,7 +69,7 @@ Lumina Studio is a professional-grade, multi-workspace image editing suite for i
 - [x] **Phase 1: Foundation** (Metal canvas, viewport navigation, layer panel, undo/redo, .lumina I/O, workspace switcher)
 - [x] **Phase 2: Core Tools** (Move/Transform, Crop, Brushes, Eyedropper, Flood Fill, Selections, Marching Ants, Layer Masks)
 - [x] **Phase 3: Adjustments & Filters** (Curves spline editor, Metal filters, live histogram, auto-enhance, clone stamp)
-- [ ] **Phase 4: Cutout & Refine Studio** (Vision segmentation, 6 overlay modes, smart edge guided filter, loupe)
+- [x] **Phase 4: Cutout & Refine Studio** (Vision segmentation, 6 overlay modes, smart edge guided filter, hair matting, loupe, specks cleanup)
 - [ ] **Phase 5: Text, Shapes & Polish** (Typography, parametric shapes, Pencil hover/pressure, localization)
 - [ ] **Phase 6: Vector Workspace** (Artboards, Pen/Node tool, Boolean ops, SVG/PDF, image tracing)
 - [ ] **Phase 7: Collage Mini Mode** (4-tap flow, 40+ templates, divider dragging, Photo handoff)

@@ -30,6 +30,8 @@ def main():
         ("HistogramView.swift", "LuminaStudio/Views/Photo/HistogramView.swift"),
         ("AdjustmentsSheetView.swift", "LuminaStudio/Views/Photo/AdjustmentsSheetView.swift"),
         ("FiltersSheetView.swift", "LuminaStudio/Views/Photo/FiltersSheetView.swift"),
+        ("MagnifierLoupeView.swift", "LuminaStudio/Views/Cutout/MagnifierLoupeView.swift"),
+        ("CutoutRefineStudioView.swift", "LuminaStudio/Views/Cutout/CutoutRefineStudioView.swift"),
         ("VectorWorkspacePlaceholderView.swift", "LuminaStudio/Views/Vector/VectorWorkspacePlaceholderView.swift"),
         ("CollageWorkspacePlaceholderView.swift", "LuminaStudio/Views/Collage/CollageWorkspacePlaceholderView.swift"),
     ]

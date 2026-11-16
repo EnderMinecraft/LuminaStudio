@@ -106,6 +106,26 @@ public struct PhotoWorkspaceView: View {
             .sheet(isPresented: $viewModel.isFiltersSheetPresented) {
                 FiltersSheetView(viewModel: viewModel)
             }
+            .fullScreenCover(isPresented: $viewModel.isCutoutRefineStudioPresented) {
+                CutoutRefineStudioView(viewModel: viewModel)
+            }
+            .overlay {
+                if viewModel.isPerformingAutoCutout {
+                    ZStack {
+                        Color.black.opacity(0.4).ignoresSafeArea()
+                        VStack(spacing: 12) {
+                            ProgressView()
+                                .controlSize(.large)
+                            Text("Detecting subjects & segmenting...")
+                                .font(.subheadline)
+                                .foregroundStyle(.white)
+                        }
+                        .padding(24)
+                        .background(.ultraThinMaterial)
+                        .clipShape(RoundedRectangle(cornerRadius: 16))
+                    }
+                }
+            }
             .photosPicker(isPresented: $viewModel.isPhotoPickerPresented, selection: $selectedPhotoItem, matching: .images)
             .onChange(of: selectedPhotoItem) { _, newItem in
                 guard let item = newItem else { return }
@@ -138,6 +158,20 @@ public struct PhotoWorkspaceView: View {
                     viewModel.isPhotoPickerPresented = true
                 } label: {
                     Label("Import Photo", systemImage: "photo.badge.plus")
+                }
+                
+                Divider()
+                
+                Button {
+                    viewModel.startAutoCutout(personOnly: false)
+                } label: {
+                    Label("Auto Cutout (Remove Background)", systemImage: "person.crop.circle.badge.minus")
+                }
+                
+                Button {
+                    viewModel.isCutoutRefineStudioPresented = true
+                } label: {
+                    Label("Refine Cutout Studio...", systemImage: "sparkle.magnifyingglass")
                 }
                 
                 Divider()

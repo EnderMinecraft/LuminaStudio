@@ -73,11 +73,13 @@ public final class PhotoEditorViewModel: @unchecked Sendable {
     public var transformState: TransformState = .identity
     public var activeSnappingGuides: [SnappingGuide] = []
     
-    // Phase 3: Adjustments, Filters, Histogram & Comparison
+    // Phase 3 & 4: Adjustments, Filters, Histogram & Cutout Refine
     public var isAdjustmentsSheetPresented: Bool = false
     public var isFiltersSheetPresented: Bool = false
     public var isHistogramPresented: Bool = false
     public var isBeforeAfterBypassed: Bool = false
+    public var isCutoutRefineStudioPresented: Bool = false
+    public var isPerformingAutoCutout: Bool = false
     public var histogramData: HistogramData = HistogramData()
     
     // UI state
@@ -369,6 +371,38 @@ public final class PhotoEditorViewModel: @unchecked Sendable {
     public func cancelCrop() {
         isCropActive = false
         cropConfig.cropRect = CGRect(x: 0, y: 0, width: document.configuration.width, height: document.configuration.height)
+    }
+    
+    // MARK: - Cutout & Background Removal
+    
+    public func startAutoCutout(personOnly: Bool = false) {
+        guard let active = activeLayer else { return }
+        isPerformingAutoCutout = true
+        statusMessage = "Analyzing image subjects..."
+        
+        Task {
+            if let cgImage = compositor.renderCGImage(document: document) {
+                do {
+                    let (mask, count) = try await CutoutEngine.shared.performAutoCutout(image: cgImage, personOnly: personOnly)
+                    await MainActor.run {
+                        self.isPerformingAutoCutout = false
+                        active.mask = mask
+                        self.isCutoutRefineStudioPresented = true
+                        self.statusMessage = "Found \(count) subjects. Opening Refine Studio."
+                    }
+                    return
+                } catch {
+                    await MainActor.run {
+                        self.isPerformingAutoCutout = false
+                        self.statusMessage = "Cutout error: \(error.localizedDescription)"
+                    }
+                }
+            }
+            await MainActor.run {
+                self.isPerformingAutoCutout = false
+                self.isCutoutRefineStudioPresented = true
+            }
+        }
     }
     
     // MARK: - Viewport & Navigation

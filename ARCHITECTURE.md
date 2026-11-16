@@ -43,6 +43,23 @@ The `RootCoordinator` lives at the application root:
 
 ---
 
+## EditorCore: Cutout & Refine Studio Pipeline (Phase 4)
+1. **Vision Background Segmentation (`CutoutEngine`):**
+   - Asynchronous execution of `VNGenerateForegroundInstanceMaskRequest` and `VNGeneratePersonSegmentationRequest`.
+   - Produces non-destructive 8-bit `LayerMask` without modifying source image pixels.
+2. **Refine Studio View (`CutoutRefineStudioView`):**
+   - 6 overlay display modes: Faded original (0-60% opacity slider, 25% default), Red Tint (Quick Mask), Checkerboard, Solid color matte, Mask only (grayscale), and unmasked Original.
+   - Zoom up to 3200% with procedural pixel grid shader active at $\ge 800\%$.
+   - Viewport Mini-Map appearing automatically above 400% zoom.
+   - Magnifier Loupe offset 85pt above touch point.
+3. **Edge Refinement & Matting:**
+   - **Smart Edge:** Local color variance bilateral/guided filter kernel snapping brush stamps to object boundaries.
+   - **Hair / Fine Detail Matting:** Trimap generation (Keep/Remove/Unknown band) solving closed-form alpha matte projection.
+   - **Color Decontamination:** Neutralizes background color bleeding along soft transition edges.
+   - **Speck Removal:** 4-way Connected-Component Labeling (CCL) clearing disconnected noise components smaller than $N$ pixels.
+
+---
+
 ## VectorCore: Hybrid Scene Graph & Calculus
 - **Scene Graph:** Tree of `ArtboardNode` containing `VectorNode` instances (`PathNode`, `ParametricShapeNode`, `VectorTextNode`, `VectorGroupNode`).
 - **Bezier Calculus:** `BezierCurveSegment` evaluates cubic Bezier splines using Bernstein polynomials and de Casteljau subdivision.
