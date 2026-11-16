@@ -20,6 +20,12 @@ def main():
         ("HistoryPanelView.swift", "LuminaStudio/Views/Photo/HistoryPanelView.swift"),
         ("NewCanvasSheetView.swift", "LuminaStudio/Views/Photo/NewCanvasSheetView.swift"),
         ("ExportSheetView.swift", "LuminaStudio/Views/Photo/ExportSheetView.swift"),
+        ("ToolSidebarView.swift", "LuminaStudio/Views/Photo/ToolSidebarView.swift"),
+        ("ToolOptionsBarView.swift", "LuminaStudio/Views/Photo/ToolOptionsBarView.swift"),
+        ("SelectionOverlayView.swift", "LuminaStudio/Views/Photo/SelectionOverlayView.swift"),
+        ("TransformOverlayView.swift", "LuminaStudio/Views/Photo/TransformOverlayView.swift"),
+        ("CropOverlayView.swift", "LuminaStudio/Views/Photo/CropOverlayView.swift"),
+        ("BrushSettingsSheetView.swift", "LuminaStudio/Views/Photo/BrushSettingsSheetView.swift"),
         ("VectorWorkspacePlaceholderView.swift", "LuminaStudio/Views/Vector/VectorWorkspacePlaceholderView.swift"),
         ("CollageWorkspacePlaceholderView.swift", "LuminaStudio/Views/Collage/CollageWorkspacePlaceholderView.swift"),
     ]

@@ -10,6 +10,14 @@ Lumina Studio is a professional-grade, multi-workspace image editing suite for i
    - Smooth pinch-to-zoom (up to 3200%), two-finger pan, canvas rotation, and double-tap to fit.
    - Non-destructive layer stack: Raster, Adjustment, Text, Shape, Vector, and Group layers.
    - Full blend mode suite (16 modes) with exact mathematical blending.
+   - **Core Editing Tools:**
+     - **Move & Transform:** Translate, scale, rotate, flip (H/V), free transform with 8 interactive handles, and snapping guides (center X/Y, canvas edges, 0/90/180/270° rotation lock).
+     - **Crop:** Aspect presets (Free, 1:1, 4:5, 3:4, 16:9, 9:16, 2:3), straighten angle slider (-45° to +45°), and rule-of-thirds grid overlay.
+     - **Brushes & Eraser:** Stamp-based compute engine with Catmull-Rom smoothing, hardness falloff, flow accumulation, Apple Pencil pressure curves, and presets (Round Soft, Round Hard, Pencil, Ink Pen, Marker, Airbrush, Eraser, Smudge).
+     - **Color Tools:** Eyedropper with 1x1, 3x3, and 5x5 aperture sampling, contiguous/non-contiguous flood fill with tolerance, linear and radial gradient engines.
+     - **Selection Engine:** Mask-based selections with Rectangle, Ellipse, Lasso, Polygonal Lasso, Magic Wand, and Vision subject selection (`VNGenerateForegroundInstanceMaskRequest`).
+     - **Selection Operations:** Invert, feather, expand, contract, select all, deselect, and animated marching ants boundary overlay.
+     - **Layer Masks:** Paint directly on masks, invert mask, apply mask (alpha bake), and enable/disable mask toggle.
    - Unified command system with unlimited undo/redo, two-finger tap (Undo), three-finger tap (Redo), and a visual History Panel.
    - Document persistence via `.lumina` zipped file packages.
    - Export to PNG, JPEG (quality slider), and HEIC.
@@ -52,7 +60,7 @@ Lumina Studio is a professional-grade, multi-workspace image editing suite for i
 
 ## Feature Roadmap & Status
 - [x] **Phase 1: Foundation** (Metal canvas, viewport navigation, layer panel, undo/redo, .lumina I/O, workspace switcher)
-- [ ] **Phase 2: Core Tools** (Move/Transform, Crop, Brushes, Eyedropper, Flood Fill, Selections, Marching Ants)
+- [x] **Phase 2: Core Tools** (Move/Transform, Crop, Brushes, Eyedropper, Flood Fill, Selections, Marching Ants, Layer Masks)
 - [ ] **Phase 3: Adjustments & Filters** (Curves spline editor, Metal filters, live histogram, auto-enhance)
 - [ ] **Phase 4: Cutout & Refine Studio** (Vision segmentation, 6 overlay modes, smart edge guided filter, loupe)
 - [ ] **Phase 5: Text, Shapes & Polish** (Typography, parametric shapes, Pencil hover/pressure, localization)

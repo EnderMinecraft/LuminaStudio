@@ -21,6 +21,32 @@ The `RootCoordinator` lives at the application root:
 
 ---
 
+## EditorCore: Core Tools Subsystem (Phase 2)
+1. **Transform Subsystem (`TransformEngine`):**
+   - 8 interactive handles and rotation stalk.
+   - Magnetic snapping to canvas center axes ($X, Y$), canvas edges, and 0/90/180/270° angle targets.
+   - Decomposition of affine transform into translation, scale, rotation, and flips.
+
+2. **Crop Subsystem (`CropEngine`):**
+   - Aspect ratio constraints (Free, 1:1, 4:5, 3:4, 16:9, 9:16, 2:3).
+   - Dynamic rule-of-thirds grid computation.
+   - Real-time layer clipping and pixel alignment adjustment via `CropDocumentCommand`.
+
+3. **Brush & Smudge Engine (`BrushEngine`):**
+   - Catmull-Rom cubic spline interpolation for high-frequency touch sampling.
+   - Stamp spacing calculation ($d \le \text{spacing} \times \text{size}$).
+   - Radial hardness falloff with cosine profile for soft airbrushes through hard inks.
+   - Direct targeting of layer RGBA buffers or single-channel 8-bit layer masks.
+
+4. **Selection Subsystem (`SelectionEngine` & `MarchingAntsGenerator`):**
+   - 8-bit mask rasterization for Rect, Ellipse, Lasso, Polygonal Lasso, and Magic Wand.
+   - Vision subject isolation via `VNGenerateForegroundInstanceMaskRequest`.
+   - Boolean combining: Replace, Add, Subtract, Intersect.
+   - Morphological operations: Separation box-blur feathering, dilation (expand), erosion (contract).
+   - Animated marching ants border extraction using sub-pixel phase dashes.
+
+---
+
 ## VectorCore: Hybrid Scene Graph & Calculus
 - **Scene Graph:** Tree of `ArtboardNode` containing `VectorNode` instances (`PathNode`, `ParametricShapeNode`, `VectorTextNode`, `VectorGroupNode`).
 - **Bezier Calculus:** `BezierCurveSegment` evaluates cubic Bezier splines using Bernstein polynomials and de Casteljau subdivision.

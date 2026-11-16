@@ -21,18 +21,47 @@ public struct PhotoWorkspaceView: View {
                 MetalCanvasRepresentable(viewModel: viewModel)
                     .ignoresSafeArea()
                 
-                // Top Floating Control Bar
-                VStack {
+                // Overlays
+                if viewModel.activeSelectionMask.hasSelection {
+                    SelectionOverlayView(
+                        segments: viewModel.marchingAntsSegments,
+                        canvasSize: viewModel.document.configuration.size,
+                        viewport: viewModel.viewport
+                    )
+                }
+                
+                if viewModel.activeTool == .move {
+                    TransformOverlayView(viewModel: viewModel)
+                }
+                
+                if viewModel.isCropActive {
+                    CropOverlayView(viewModel: viewModel)
+                }
+                
+                // Top Bar & Tool Options
+                VStack(spacing: 8) {
                     topToolbar
                         .padding(.horizontal)
                         .padding(.top, 8)
+                    
+                    ToolOptionsBarView(viewModel: viewModel)
+                        .padding(.horizontal)
+                    
                     Spacer()
+                    
                     bottomStatusBar
                         .padding(.horizontal)
                         .padding(.bottom, 8)
                 }
                 
-                // Side Drawer Panels
+                // Left Tool Sidebar
+                HStack {
+                    ToolSidebarView(viewModel: viewModel)
+                        .padding(.leading, 12)
+                    Spacer()
+                }
+                
+                // Side Drawer Panels (Layers & History)
                 HStack {
                     Spacer()
                     if viewModel.isLayerPanelPresented {
@@ -46,11 +75,15 @@ public struct PhotoWorkspaceView: View {
             }
             .animation(.easeInOut(duration: 0.25), value: viewModel.isLayerPanelPresented)
             .animation(.easeInOut(duration: 0.25), value: viewModel.isHistoryPanelPresented)
+            .animation(.easeInOut(duration: 0.2), value: viewModel.activeTool)
             .sheet(isPresented: $viewModel.isNewCanvasSheetPresented) {
                 NewCanvasSheetView(viewModel: viewModel)
             }
             .sheet(isPresented: $viewModel.isExportSheetPresented) {
                 ExportSheetView(viewModel: viewModel)
+            }
+            .sheet(isPresented: $viewModel.isBrushSettingsPresented) {
+                BrushSettingsSheetView(viewModel: viewModel)
             }
             .photosPicker(isPresented: $viewModel.isPhotoPickerPresented, selection: $selectedPhotoItem, matching: .images)
             .onChange(of: selectedPhotoItem) { _, newItem in

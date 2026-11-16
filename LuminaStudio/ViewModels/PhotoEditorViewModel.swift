@@ -8,6 +8,34 @@ import EditorCore
 import UIKit
 #endif
 
+public enum ActiveTool: String, CaseIterable, Identifiable, Sendable {
+    case move = "Move & Transform"
+    case crop = "Crop"
+    case brush = "Brush"
+    case eraser = "Eraser"
+    case smudge = "Smudge"
+    case eyedropper = "Eyedropper"
+    case floodFill = "Fill Bucket"
+    case gradient = "Gradient"
+    case selection = "Selection"
+    
+    public var id: String { rawValue }
+    
+    public var icon: String {
+        switch self {
+        case .move: return "arrow.up.and.down.and.arrow.left.and.right"
+        case .crop: return "crop"
+        case .brush: return "paintbrush.pointed.fill"
+        case .eraser: return "eraser.fill"
+        case .smudge: return "hand.draw.fill"
+        case .eyedropper: return "eyedropper"
+        case .floodFill: return "drop.fill"
+        case .gradient: return "circle.lefthalf.striped.horizontal"
+        case .selection: return "lasso"
+        }
+    }
+}
+
 @Observable
 public final class PhotoEditorViewModel: @unchecked Sendable {
     public var document: LuminaDocument
@@ -15,12 +43,38 @@ public final class PhotoEditorViewModel: @unchecked Sendable {
     public var viewport: ViewportState
     public let compositor: TiledCanvasCompositor
     
+    // Active tool state
+    public var activeTool: ActiveTool = .brush
+    public var activeBrushPreset: BrushPreset = .roundSoft
+    public var brushColor: ColorRGBA = ColorRGBA(r: 59, g: 130, b: 246, a: 255)
+    
+    // Selection state
+    public var activeSelectionMask: SelectionMask
+    public var selectionMode: SelectionMode = .replace
+    public var selectionToolType: SelectionToolType = .rectangle
+    public var selectionFeatherRadius: Int = 4
+    public var marchingAntsPhase: CGFloat = 0.0
+    public var marchingAntsSegments: [LineSegment] = []
+    
+    // Color tools state
+    public var floodFillTolerance: Double = 0.15
+    public var floodFillContiguous: Bool = true
+    public var activeEyedropperColor: ColorRGBA?
+    public var gradientType: GradientType = .linear
+    
+    // Crop & Transform state
+    public var cropConfig: CropConfiguration
+    public var isCropActive: Bool = false
+    public var transformState: TransformState = .identity
+    public var activeSnappingGuides: [SnappingGuide] = []
+    
     // UI state
     public var isLayerPanelPresented: Bool = false
     public var isHistoryPanelPresented: Bool = false
     public var isNewCanvasSheetPresented: Bool = false
     public var isExportSheetPresented: Bool = false
     public var isPhotoPickerPresented: Bool = false
+    public var isBrushSettingsPresented: Bool = false
     public var statusMessage: String = "Ready"
     
     public init(document: LuminaDocument, commandManager: CommandManager) {
@@ -33,6 +87,13 @@ public final class PhotoEditorViewModel: @unchecked Sendable {
             viewportSize: CGSize(width: 800, height: 800)
         )
         self.compositor = TiledCanvasCompositor()
+        self.activeSelectionMask = SelectionMask(
+            width: document.configuration.width,
+            height: document.configuration.height
+        )
+        self.cropConfig = CropConfiguration(
+            cropRect: CGRect(x: 0, y: 0, width: document.configuration.width, height: document.configuration.height)
+        )
     }
     
     public var activeLayer: Layer? {
@@ -52,7 +113,6 @@ public final class PhotoEditorViewModel: @unchecked Sendable {
             pixelWidth: document.configuration.width,
             pixelHeight: document.configuration.height
         )
-        
         let cmd = AddLayerCommand(document: document, layer: newLayer)
         executeCommand(cmd)
     }
@@ -63,7 +123,6 @@ public final class PhotoEditorViewModel: @unchecked Sendable {
             statusMessage = "Cannot delete the last remaining layer."
             return
         }
-        
         do {
             let cmd = try RemoveLayerCommand(document: document, layerID: active.id)
             executeCommand(cmd)
@@ -115,6 +174,179 @@ public final class PhotoEditorViewModel: @unchecked Sendable {
         guard let active = activeLayer, !newName.isEmpty else { return }
         let cmd = RenameLayerCommand(layer: active, newName: newName)
         executeCommand(cmd)
+    }
+    
+    // MARK: - Layer Mask Operations
+    
+    public func createMaskFromSelection() {
+        guard let active = activeLayer else { return }
+        let w = document.configuration.width
+        let h = document.configuration.height
+        let mask = LayerMask(width: w, height: h)
+        if activeSelectionMask.hasSelection {
+            mask.maskData = Data(activeSelectionMask.data)
+        }
+        let cmd = CreateLayerMaskCommand(layer: active, mask: mask)
+        executeCommand(cmd)
+    }
+    
+    public func invertActiveMask() {
+        guard let active = activeLayer, active.mask != nil else { return }
+        let cmd = InvertLayerMaskCommand(layer: active)
+        executeCommand(cmd)
+    }
+    
+    public func applyActiveMask() {
+        guard let active = activeLayer, active.mask != nil else { return }
+        let cmd = ApplyLayerMaskCommand(layer: active)
+        executeCommand(cmd)
+    }
+    
+    public func toggleActiveMask() {
+        guard let active = activeLayer, active.mask != nil else { return }
+        let cmd = ToggleLayerMaskCommand(layer: active)
+        executeCommand(cmd)
+    }
+    
+    // MARK: - Selection Operations
+    
+    public func invertSelection() {
+        activeSelectionMask.invert()
+        updateMarchingAnts()
+        statusMessage = "Invert Selection"
+    }
+    
+    public func selectAll() {
+        activeSelectionMask.selectAll()
+        updateMarchingAnts()
+        statusMessage = "Select All"
+    }
+    
+    public func deselect() {
+        activeSelectionMask.deselect()
+        marchingAntsSegments.removeAll()
+        statusMessage = "Deselect"
+    }
+    
+    public func featherSelection(radius: Int) {
+        activeSelectionMask.feather(radius: radius)
+        updateMarchingAnts()
+        statusMessage = "Feather (\(radius)px)"
+    }
+    
+    public func expandSelection(pixels: Int) {
+        activeSelectionMask.expand(pixels: pixels)
+        updateMarchingAnts()
+        statusMessage = "Expand (\(pixels)px)"
+    }
+    
+    public func contractSelection(pixels: Int) {
+        activeSelectionMask.contract(pixels: pixels)
+        updateMarchingAnts()
+        statusMessage = "Contract (\(pixels)px)"
+    }
+    
+    public func updateMarchingAnts() {
+        if activeSelectionMask.hasSelection {
+            marchingAntsSegments = MarchingAntsGenerator.shared.generateBorderSegments(
+                mask: activeSelectionMask,
+                sampleStep: max(1, Int(ceil(2.0 / viewport.zoom)))
+            )
+        } else {
+            marchingAntsSegments.removeAll()
+        }
+    }
+    
+    // MARK: - Color Tools Execution
+    
+    public func sampleEyedropper(at point: CGPoint) {
+        let buffer = compositor.compositeToBuffer(document: document)
+        if let sampled = EyedropperEngine.shared.sampleColor(
+            at: point,
+            in: buffer,
+            width: document.configuration.width,
+            height: document.configuration.height,
+            aperture: 3
+        ) {
+            brushColor = sampled
+            activeEyedropperColor = sampled
+            statusMessage = "Sampled \(sampled.hexString)"
+        }
+    }
+    
+    public func executeFloodFill(at point: CGPoint) {
+        guard let active = activeLayer, let data = active.rawPixelData,
+              active.pixelWidth > 0, active.pixelHeight > 0 else { return }
+        
+        let oldData = data
+        var buffer = [UInt8](data)
+        FloodFillEngine.shared.fill(
+            startPoint: point,
+            fillColor: brushColor,
+            tolerance: floodFillTolerance,
+            isContiguous: floodFillContiguous,
+            buffer: &buffer,
+            width: active.pixelWidth,
+            height: active.pixelHeight
+        )
+        let newData = Data(buffer)
+        let cmd = PaintStrokeCommand(layer: active, previousData: oldData, newData: newData)
+        executeCommand(cmd)
+    }
+    
+    public func executeGradient(from start: CGPoint, to end: CGPoint) {
+        guard let active = activeLayer, let data = active.rawPixelData,
+              active.pixelWidth > 0, active.pixelHeight > 0 else { return }
+        
+        let oldData = data
+        var buffer = [UInt8](data)
+        let stops = [
+            GradientStop(location: 0.0, color: brushColor),
+            GradientStop(location: 1.0, color: ColorRGBA(r: 255, g: 255, b: 255, a: 0))
+        ]
+        
+        if gradientType == .linear {
+            GradientEngine.shared.renderLinearGradient(
+                from: start,
+                to: end,
+                stops: stops,
+                width: active.pixelWidth,
+                height: active.pixelHeight,
+                buffer: &buffer
+            )
+        } else {
+            let dx = end.x - start.x
+            let dy = end.y - start.y
+            let radius = sqrt(dx * dx + dy * dy)
+            GradientEngine.shared.renderRadialGradient(
+                center: start,
+                radius: radius,
+                stops: stops,
+                width: active.pixelWidth,
+                height: active.pixelHeight,
+                buffer: &buffer
+            )
+        }
+        
+        let newData = Data(buffer)
+        let cmd = PaintStrokeCommand(layer: active, previousData: oldData, newData: newData)
+        executeCommand(cmd)
+    }
+    
+    // MARK: - Crop & Transform Execution
+    
+    public func executeCrop() {
+        let cmd = CropDocumentCommand(document: document, cropRect: cropConfig.cropRect)
+        executeCommand(cmd)
+        isCropActive = false
+        activeSelectionMask = SelectionMask(width: document.configuration.width, height: document.configuration.height)
+        cropConfig.cropRect = CGRect(x: 0, y: 0, width: document.configuration.width, height: document.configuration.height)
+        zoomToFit(containerSize: viewport.viewportSize)
+    }
+    
+    public func cancelCrop() {
+        isCropActive = false
+        cropConfig.cropRect = CGRect(x: 0, y: 0, width: document.configuration.width, height: document.configuration.height)
     }
     
     // MARK: - Viewport & Navigation
@@ -193,6 +425,8 @@ public final class PhotoEditorViewModel: @unchecked Sendable {
             backgroundColor: background
         )
         self.document = LuminaDocument(title: "New Canvas", configuration: config)
+        self.activeSelectionMask = SelectionMask(width: width, height: height)
+        self.cropConfig = CropConfiguration(cropRect: CGRect(x: 0, y: 0, width: width, height: height))
         self.commandManager.clear()
         self.statusMessage = "Created new canvas (\(width)x\(height))"
     }
@@ -213,7 +447,6 @@ public final class PhotoEditorViewModel: @unchecked Sendable {
         let newDoc = LuminaDocument(title: "Imported Image", configuration: config)
         newDoc.layers.removeAll()
         
-        // Extract raw RGBA bytes
         let totalBytes = w * h * 4
         var rawData = Data(count: totalBytes)
         rawData.withUnsafeMutableBytes { ptr in
@@ -244,6 +477,8 @@ public final class PhotoEditorViewModel: @unchecked Sendable {
         )
         newDoc.addLayer(imageLayer)
         self.document = newDoc
+        self.activeSelectionMask = SelectionMask(width: w, height: h)
+        self.cropConfig = CropConfiguration(cropRect: CGRect(x: 0, y: 0, width: w, height: h))
         self.commandManager.clear()
         self.statusMessage = "Imported image (\(w)x\(h))"
     }
