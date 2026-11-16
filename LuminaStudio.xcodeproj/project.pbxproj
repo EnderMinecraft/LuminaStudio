@@ -1,0 +1,293 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		14DCAED722A742729BD64CAE /* LuminaStudioApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6183D9EACA343FD917BA11B /* LuminaStudioApp.swift */; };
+		0FB11F7B87B64A8680D172C1 /* RootCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84DC51DA07E4630A0F009D9 /* RootCoordinator.swift */; };
+		F8732EB9658D4DD4A50EBD1F /* PhotoEditorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FE1628826246FABBDC0E5F /* PhotoEditorViewModel.swift */; };
+		2EF55D2DD5E24C49A106A14F /* WorkspaceContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85954C6934C44022841467A9 /* WorkspaceContainerView.swift */; };
+		946CA4AC51E44FF8B9A9F40A /* PhotoWorkspaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EEBCF72D6244E1EB04A4252 /* PhotoWorkspaceView.swift */; };
+		09CB8D5F07C14C07A518EB41 /* MetalCanvasRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39580E6AB72492B9C6E66B0 /* MetalCanvasRepresentable.swift */; };
+		F8682CD8A1DA47109D4E72BB /* LayerPanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 664D56E2140141B6A4879B06 /* LayerPanelView.swift */; };
+		5AFE8839DAF74DD5A085AB84 /* HistoryPanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB30F87D642422D882F73D5 /* HistoryPanelView.swift */; };
+		DC5C302D21A540D0B7F0E544 /* NewCanvasSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ACDF82EF1BB4D3CBEEC7D79 /* NewCanvasSheetView.swift */; };
+		8F7B447061534877B5ED9C1A /* ExportSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B515BA546CE0445583CED302 /* ExportSheetView.swift */; };
+		A18BCDE1F8D64660BFDB049D /* VectorWorkspacePlaceholderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40793DA2B75F4467AF4C4AE1 /* VectorWorkspacePlaceholderView.swift */; };
+		04F4D57D7FF442AE869E7D8D /* CollageWorkspacePlaceholderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E747A16FA7A4C30A6DFC439 /* CollageWorkspacePlaceholderView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		D6183D9EACA343FD917BA11B /* LuminaStudioApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LuminaStudio/App/LuminaStudioApp.swift"; sourceTree = "<group>"; };
+		B84DC51DA07E4630A0F009D9 /* RootCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LuminaStudio/App/RootCoordinator.swift"; sourceTree = "<group>"; };
+		A1FE1628826246FABBDC0E5F /* PhotoEditorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LuminaStudio/ViewModels/PhotoEditorViewModel.swift"; sourceTree = "<group>"; };
+		85954C6934C44022841467A9 /* WorkspaceContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LuminaStudio/Views/WorkspaceContainerView.swift"; sourceTree = "<group>"; };
+		2EEBCF72D6244E1EB04A4252 /* PhotoWorkspaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LuminaStudio/Views/Photo/PhotoWorkspaceView.swift"; sourceTree = "<group>"; };
+		E39580E6AB72492B9C6E66B0 /* MetalCanvasRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LuminaStudio/Views/Photo/MetalCanvasRepresentable.swift"; sourceTree = "<group>"; };
+		664D56E2140141B6A4879B06 /* LayerPanelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LuminaStudio/Views/Photo/LayerPanelView.swift"; sourceTree = "<group>"; };
+		BFB30F87D642422D882F73D5 /* HistoryPanelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LuminaStudio/Views/Photo/HistoryPanelView.swift"; sourceTree = "<group>"; };
+		2ACDF82EF1BB4D3CBEEC7D79 /* NewCanvasSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LuminaStudio/Views/Photo/NewCanvasSheetView.swift"; sourceTree = "<group>"; };
+		B515BA546CE0445583CED302 /* ExportSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LuminaStudio/Views/Photo/ExportSheetView.swift"; sourceTree = "<group>"; };
+		40793DA2B75F4467AF4C4AE1 /* VectorWorkspacePlaceholderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LuminaStudio/Views/Vector/VectorWorkspacePlaceholderView.swift"; sourceTree = "<group>"; };
+		2E747A16FA7A4C30A6DFC439 /* CollageWorkspacePlaceholderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LuminaStudio/Views/Collage/CollageWorkspacePlaceholderView.swift"; sourceTree = "<group>"; };
+		A34DF1F613BD42F2903AFD48 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "LuminaStudio/Resources/Info.plist"; sourceTree = "<group>"; };
+		7EF799C259B74F5EA90CC451 /* LuminaStudio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LuminaStudio.app; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		76D3CC86BA1447FDBDF0F77C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		6008C73496184A5DB6FE95C1 = {
+			isa = PBXGroup;
+			children = (
+				3FFEAEBA3AB74B0199A3ABC1 /* LuminaStudio */,
+				91B23EA828204EEEBB4E56A7 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		91B23EA828204EEEBB4E56A7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7EF799C259B74F5EA90CC451 /* LuminaStudio.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3FFEAEBA3AB74B0199A3ABC1 /* LuminaStudio */ = {
+			isa = PBXGroup;
+			children = (
+				D6183D9EACA343FD917BA11B /* LuminaStudioApp.swift */,
+				B84DC51DA07E4630A0F009D9 /* RootCoordinator.swift */,
+				A1FE1628826246FABBDC0E5F /* PhotoEditorViewModel.swift */,
+				85954C6934C44022841467A9 /* WorkspaceContainerView.swift */,
+				2EEBCF72D6244E1EB04A4252 /* PhotoWorkspaceView.swift */,
+				E39580E6AB72492B9C6E66B0 /* MetalCanvasRepresentable.swift */,
+				664D56E2140141B6A4879B06 /* LayerPanelView.swift */,
+				BFB30F87D642422D882F73D5 /* HistoryPanelView.swift */,
+				2ACDF82EF1BB4D3CBEEC7D79 /* NewCanvasSheetView.swift */,
+				B515BA546CE0445583CED302 /* ExportSheetView.swift */,
+				40793DA2B75F4467AF4C4AE1 /* VectorWorkspacePlaceholderView.swift */,
+				2E747A16FA7A4C30A6DFC439 /* CollageWorkspacePlaceholderView.swift */,
+				A34DF1F613BD42F2903AFD48 /* Info.plist */,
+			);
+			name = LuminaStudio;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		361CCA3AC5634915814AC113 /* LuminaStudio */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3AD489D16FF240E8BB483138 /* Build configuration list for PBXNativeTarget "LuminaStudio" */;
+			buildPhases = (
+				C9173AC6498944F89CD66139 /* Sources */,
+				76D3CC86BA1447FDBDF0F77C /* Frameworks */,
+				DF21CA2D0FCA453E93444CDD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LuminaStudio;
+			productName = LuminaStudio;
+			productReference = 7EF799C259B74F5EA90CC451 /* LuminaStudio.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2FE498195DF54734AD21CD92 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					361CCA3AC5634915814AC113 = {
+						CreatedOnToolsConfirmation = 1;
+					};
+				};
+			};
+			buildConfigurationList = B84C67446C8F4FEA8870DF7A /* Build configuration list for PBXProject "LuminaStudio" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 6008C73496184A5DB6FE95C1;
+			productRefGroup = 91B23EA828204EEEBB4E56A7 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				361CCA3AC5634915814AC113 /* LuminaStudio */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DF21CA2D0FCA453E93444CDD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C9173AC6498944F89CD66139 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				14DCAED722A742729BD64CAE /* LuminaStudioApp.swift in Sources */,
+				0FB11F7B87B64A8680D172C1 /* RootCoordinator.swift in Sources */,
+				F8732EB9658D4DD4A50EBD1F /* PhotoEditorViewModel.swift in Sources */,
+				2EF55D2DD5E24C49A106A14F /* WorkspaceContainerView.swift in Sources */,
+				946CA4AC51E44FF8B9A9F40A /* PhotoWorkspaceView.swift in Sources */,
+				09CB8D5F07C14C07A518EB41 /* MetalCanvasRepresentable.swift in Sources */,
+				F8682CD8A1DA47109D4E72BB /* LayerPanelView.swift in Sources */,
+				5AFE8839DAF74DD5A085AB84 /* HistoryPanelView.swift in Sources */,
+				DC5C302D21A540D0B7F0E544 /* NewCanvasSheetView.swift in Sources */,
+				8F7B447061534877B5ED9C1A /* ExportSheetView.swift in Sources */,
+				A18BCDE1F8D64660BFDB049D /* VectorWorkspacePlaceholderView.swift in Sources */,
+				04F4D57D7FF442AE869E7D8D /* CollageWorkspacePlaceholderView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		632336E174D142B4AE6CBD43 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		BCA3FDAA08EC498988079244 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_OPTIMIZATION_LEVEL = s;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		7BD80D91C14D4CB48EC6BD10 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = "LuminaStudio/Resources/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.lumina.studio";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		4D29624AB61248D4B3C30A7B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = "LuminaStudio/Resources/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.lumina.studio";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B84C67446C8F4FEA8870DF7A /* Build configuration list for PBXProject "LuminaStudio" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				632336E174D142B4AE6CBD43 /* Debug */,
+				BCA3FDAA08EC498988079244 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3AD489D16FF240E8BB483138 /* Build configuration list for PBXNativeTarget "LuminaStudio" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7BD80D91C14D4CB48EC6BD10 /* Debug */,
+				4D29624AB61248D4B3C30A7B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+	};
+	rootObject = 2FE498195DF54734AD21CD92 /* Project object */;
+}
